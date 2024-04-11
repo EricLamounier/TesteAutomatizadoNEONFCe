@@ -1,0 +1,183 @@
+11/04/2024 15:33:49 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 714522065/1
+
+11/04/2024 15:33:49 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:33:49 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 714522065/1
+
+11/04/2024 15:33:49 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:34:34 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 714522066/1
+
+11/04/2024 15:34:35 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:34:35 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 714522066/1
+
+11/04/2024 15:34:35 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:39:36 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 714522067/1
+
+11/04/2024 15:39:36 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:39:36 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 714522067/1
+
+11/04/2024 15:39:36 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:42:28 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 714522068/1
+
+11/04/2024 15:42:29 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:42:29 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 714522068/1
+
+11/04/2024 15:42:29 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:43:34 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 714522069/1
+
+11/04/2024 15:43:35 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:43:35 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 714522069/1
+
+11/04/2024 15:43:35 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:44:13 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 714522070/1
+
+11/04/2024 15:44:13 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 714522070/1
+
+11/04/2024 15:50:15 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 161251067/1
+
+11/04/2024 15:50:16 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 15:50:16 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 161251067/1
+
+11/04/2024 15:50:16 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:04:48 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655415/1
+
+11/04/2024 16:04:49 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:04:49 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 174655415/1
+
+11/04/2024 16:04:49 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:05:38 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655416/1
+
+11/04/2024 16:05:39 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:05:39 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 174655416/1
+
+11/04/2024 16:05:39 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:08:13 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655417/1
+
+11/04/2024 16:08:13 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:08:13 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 174655417/1
+
+11/04/2024 16:08:13 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:09:20 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655418/1
+
+11/04/2024 16:09:20 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:09:20 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 174655418/1
+
+11/04/2024 16:09:20 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:10:11 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655419/1
+
+11/04/2024 16:10:11 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:10:11 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 174655419/1
+
+11/04/2024 16:10:11 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:10:32 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655420/1
+
+11/04/2024 16:11:33 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655421/1
+
+11/04/2024 16:11:33 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:11:33 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 174655421/1
+
+11/04/2024 16:11:34 3.47.2.6
+Mensagem Original: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+Mensagem Tratada: Rejeicao: Tipo de pagamento nao aceita o grupo de cartoes ou boletos.[nOcor: 1]
+
+11/04/2024 16:12:16 3.47.2.6
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 174655422/1
+
+11/04/2024 16:12:16 3.47.2.6
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 174655422/1
+
