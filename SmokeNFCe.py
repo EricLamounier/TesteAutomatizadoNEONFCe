@@ -14,7 +14,7 @@ from cadastro_pessoas import *
 from main import smokeNFCE, etapas
 from config import *
 
-WINDOW_TITLE = "Teste Automatizado NEONFC-e (BETA)"
+WINDOW_TITLE = "Teste Automatizado NEONFCe"
 ICON_PATH = join(dirname(__file__), 'assets', 'logo.ico')
 
 def inicia_opcao(opcoes_menu, opt, ip_maquina):

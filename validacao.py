@@ -5,6 +5,8 @@ from pyperclip import copy, paste
 import keyboard
 from datetime import datetime
 import xml.etree.ElementTree as ET
+from os.path import exists
+from os import mkdir
 
 def nao_existe_registro(texto):
     hotkey('shift', 'backspace')  # Limpa o campo
@@ -86,6 +88,12 @@ def adicionar_log(texto):
     data_hora_atual = datetime.now().strftime("%d/%m/%Y - %H:%M")
 
     log_formatado = f"[{data_hora_atual}] \n{texto}\n\n"
+    
+    if not exists('./Logs'):
+        makedirs('./Logs')
+
+    if not exists('./Logs/log.txt'):
+        open('./Logs/log.txt', 'w').close()
     
     with open('./Logs/log.txt', 'a') as arquivo_log:
         arquivo_log.write(log_formatado)

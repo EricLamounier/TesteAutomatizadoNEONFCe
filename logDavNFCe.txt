@@ -218,3 +218,215 @@ Adiciona Finalizadora [Código: 1]
 BeforeFinalizacao
 11/04/2024 16:10:19 3.47.2.6
 AfterFinalizacao
+19/04/2024 10:54:16 3.46.9.0
+Recebe a venda do Neo [-1]
+19/04/2024 10:54:16 3.46.9.0
+Identifica Origem: 4261118
+19/04/2024 10:54:16 3.46.9.0
+Importação Inicializada [Origem: DAV] - [Código: 1]
+19/04/2024 10:54:16 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:54:16 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 10:54:16 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 10:54:16 3.46.9.0
+Vende Item [Código: 1; Quantidade: 10; Unitario: 3]
+19/04/2024 10:54:16 3.46.9.0
+Insere Cliente [Código: 1]
+19/04/2024 10:54:16 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:54:16 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 10:54:16 3.46.9.0
+Adiciona Finalizadora [Código: 2]
+19/04/2024 10:54:31 3.46.9.0
+BeforeFinalizacao
+19/04/2024 10:54:31 3.46.9.0
+AfterFinalizacao
+19/04/2024 10:55:27 3.46.9.0
+Recebe a venda do Neo [1]
+19/04/2024 10:55:27 3.46.9.0
+Identifica Origem: 2230636
+19/04/2024 10:55:27 3.46.9.0
+Importação Inicializada [Origem: DAV Rápido] - [Código: 1]
+19/04/2024 10:55:27 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:55:27 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 10:55:27 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 10:55:27 3.46.9.0
+Vende Item Variação [Código: A2B2; Quantidade: 10; Unitario: 60]
+19/04/2024 10:55:27 3.46.9.0
+Insere Cliente [Código: 1]
+19/04/2024 10:55:27 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:55:27 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 10:55:28 3.46.9.0
+Adiciona Finalizadora [Código: 2]
+19/04/2024 10:56:14 3.46.9.0
+BeforeFinalizacao
+19/04/2024 10:56:14 3.46.9.0
+AfterFinalizacao
+19/04/2024 10:56:50 3.46.9.0
+Importação Inicializada [Origem: DAV] - [Código: 0]
+19/04/2024 10:56:50 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:56:50 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 10:56:53 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:56:53 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 10:56:53 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 10:56:53 3.46.9.0
+Vende Item [Código: 2; Quantidade: 15; Unitario: 20]
+19/04/2024 10:56:53 3.46.9.0
+Insere Cliente [Código: 2]
+19/04/2024 10:56:53 3.46.9.0
+Insere Desconto Venda [0,85]
+19/04/2024 10:56:53 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:56:53 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 10:56:53 3.46.9.0
+Adiciona Finalizadora [Código: 1]
+19/04/2024 10:57:07 3.46.9.0
+BeforeFinalizacao
+19/04/2024 10:57:07 3.46.9.0
+AfterFinalizacao
+19/04/2024 10:57:11 3.46.9.0
+Importação Inicializada [Origem: DAV Rápido] - [Código: 0]
+19/04/2024 10:57:11 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:57:11 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 10:57:14 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:57:14 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 10:57:14 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 10:57:14 3.46.9.0
+Vende Item [Código: 2; Quantidade: 2; Unitario: 20]
+19/04/2024 10:57:15 3.46.9.0
+Insere Cliente [Código: 4]
+19/04/2024 10:57:15 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 10:57:15 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 10:57:15 3.46.9.0
+Adiciona Finalizadora [Código: 1]
+19/04/2024 10:57:29 3.46.9.0
+BeforeFinalizacao
+19/04/2024 10:57:29 3.46.9.0
+AfterFinalizacao
+19/04/2024 17:08:59 3.46.9.0
+Recebe a venda do Neo [-1]
+19/04/2024 17:08:59 3.46.9.0
+Identifica Origem: 1642126
+19/04/2024 17:08:59 3.46.9.0
+Importação Inicializada [Origem: DAV] - [Código: 1]
+19/04/2024 17:08:59 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:08:59 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 17:08:59 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 17:08:59 3.46.9.0
+Vende Item [Código: 1; Quantidade: 10; Unitario: 3]
+19/04/2024 17:08:59 3.46.9.0
+Insere Cliente [Código: 1]
+19/04/2024 17:08:59 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:08:59 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 17:08:59 3.46.9.0
+Adiciona Finalizadora [Código: 2]
+19/04/2024 17:09:13 3.46.9.0
+BeforeFinalizacao
+19/04/2024 17:09:13 3.46.9.0
+AfterFinalizacao
+19/04/2024 17:10:10 3.46.9.0
+Recebe a venda do Neo [1]
+19/04/2024 17:10:10 3.46.9.0
+Identifica Origem: 2164212
+19/04/2024 17:10:10 3.46.9.0
+Importação Inicializada [Origem: DAV Rápido] - [Código: 1]
+19/04/2024 17:10:10 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:10:10 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 17:10:10 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 17:10:10 3.46.9.0
+Vende Item Variação [Código: A2B2; Quantidade: 10; Unitario: 60]
+19/04/2024 17:10:10 3.46.9.0
+Insere Cliente [Código: 1]
+19/04/2024 17:10:10 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:10:10 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 17:10:10 3.46.9.0
+Adiciona Finalizadora [Código: 2]
+19/04/2024 17:10:57 3.46.9.0
+BeforeFinalizacao
+19/04/2024 17:10:57 3.46.9.0
+AfterFinalizacao
+19/04/2024 17:11:33 3.46.9.0
+Importação Inicializada [Origem: DAV] - [Código: 0]
+19/04/2024 17:11:33 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:11:33 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 17:11:36 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:11:36 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 17:11:36 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 17:11:36 3.46.9.0
+Vende Item [Código: 2; Quantidade: 15; Unitario: 20]
+19/04/2024 17:11:36 3.46.9.0
+Insere Cliente [Código: 2]
+19/04/2024 17:11:36 3.46.9.0
+Insere Desconto Venda [0,85]
+19/04/2024 17:11:36 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:11:36 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 17:11:36 3.46.9.0
+Adiciona Finalizadora [Código: 1]
+19/04/2024 17:11:50 3.46.9.0
+BeforeFinalizacao
+19/04/2024 17:11:50 3.46.9.0
+AfterFinalizacao
+19/04/2024 17:11:54 3.46.9.0
+Importação Inicializada [Origem: DAV Rápido] - [Código: 0]
+19/04/2024 17:11:54 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:11:54 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 17:11:57 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:11:57 3.46.9.0
+Atualiza Situação: [2]
+19/04/2024 17:11:57 3.46.9.0
+Validação dos itens para NFC-e
+19/04/2024 17:11:57 3.46.9.0
+Vende Item [Código: 2; Quantidade: 2; Unitario: 20]
+19/04/2024 17:11:57 3.46.9.0
+Insere Cliente [Código: 4]
+19/04/2024 17:11:57 3.46.9.0
+Atualizar campo de "Finalizado ECF/NFC-e"
+19/04/2024 17:11:57 3.46.9.0
+Atualiza Situação: [1]
+19/04/2024 17:11:58 3.46.9.0
+Adiciona Finalizadora [Código: 1]
+19/04/2024 17:12:12 3.46.9.0
+BeforeFinalizacao
+19/04/2024 17:12:12 3.46.9.0
+AfterFinalizacao
