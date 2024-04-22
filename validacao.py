@@ -6,7 +6,7 @@ import keyboard
 from datetime import datetime
 import xml.etree.ElementTree as ET
 from os.path import exists
-from os import mkdir
+from os import mkdir, makedirs
 
 def nao_existe_registro(texto):
     hotkey('shift', 'backspace')  # Limpa o campo

@@ -1,7 +1,6 @@
 from pyautogui import click, press, hotkey, write, doubleClick, rightClick, size, moveTo
 import keyboard
 from pygetwindow import getWindowsWithTitle
-from validacao import *
 from time import sleep
 from random import randint
 from pyperclip import copy, paste, waitForPaste
@@ -13,6 +12,7 @@ from threading import Thread
 from os.path import join, exists
 from os import remove
 import dados
+from validacao import *
 
 def obter_data(qtdMes_a_mais=0):
     data_atual = datetime.now()

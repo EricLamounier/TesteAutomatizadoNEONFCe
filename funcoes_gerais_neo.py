@@ -401,7 +401,7 @@ def cria_terminal(arg=''):
     sleep(0.05)
     press(['enter', 'enter']) # Entra no NEO PDV
 
-    sleep(2) # TODO VERIFICAR AQUI SE FUNCIONOU!!!!
+    sleep(4) # TODO VERIFICAR AQUI SE FUNCIONOU!!!!
     press('n') # Para pular pedido de atualizar nova versão caso apareça
 
     sleep(20) # Espera atualizar
@@ -535,10 +535,10 @@ def entrar_no_terminal(usuario):
     write(usuario['senha'])
 
     press(['enter', 'enter']) # Entra no NEO PDV
-    sleep(1)
+    sleep(6)
 
     press('n') # Para pular pedido de atualizar nova versão caso apareça TODO VRRIFICAR SE FUNCIONOU
-    sleep(8)
+    sleep(2)
 
     hotkey('ctrl', 'f6') # Pega rastro da tela
     rastro = waitForPaste()

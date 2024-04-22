@@ -114,22 +114,7 @@ def pararExecucao():
 
 def inativar_produtos():
     messagebox.showinfo("Teste", "Teste Teste Teste Teste Teste Teste Teste...")
-    """
-    global current_line
-    largura, altura = size()
-    coordenadas_centro = (largura // 2, altura // 2)
-    click(coordenadas_centro[0], coordenadas_centro[1])
-    insere_mensagem('➤ Inativando produtos...')
-    inativar('sp001')
-    insere_mensagem('✔ Inativando produtos...', 2)
-    insere_mensagem('➤ Cancelando registros...')
-    entra_na_tela('sv004')
-    cancela()
-    entra_na_tela('sv012')
-    cancela()
-    insere_mensagem('✔ Cancelando registros...', 2)
-    """
-
+    
 def step(val):
     num = len(etapas) # %
     porcent = floor((val*100)/num)
