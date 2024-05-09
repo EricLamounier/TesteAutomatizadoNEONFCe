@@ -18,8 +18,8 @@ def parametros_gerais(arg=''):
     modulo = {
         'pasta': 'parametrosgerais',
         'imagem': 'campopdvnfce',
-        'inicio': '1010x563',
-        'fim': '1144x591'
+        'inicio': '1009x570',
+        'fim': '1113x592'
     }
 
     if imagens_diferentes(modulo): return True
