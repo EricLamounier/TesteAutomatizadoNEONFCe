@@ -401,7 +401,7 @@ def cria_terminal(arg=''):
     sleep(0.05)
     press(['enter', 'enter']) # Entra no NEO PDV
 
-    sleep(2) # TODO VERIFICAR AQUI SE FUNCIONOU!!!!
+    sleep(4) # TODO VERIFICAR AQUI SE FUNCIONOU!!!!
     press('n') # Para pular pedido de atualizar nova versão caso apareça
 
     sleep(20) # Espera atualizar
@@ -526,16 +526,19 @@ def entrar_no_terminal(usuario):
     sleep(1.5)
 
     click(847, 477) # Login
+    sleep(0.3)
+    hotkey('ctrl', 'a')
+    sleep(0.3)
     write(usuario['login'])
 
     press('tab')
     write(usuario['senha'])
 
     press(['enter', 'enter']) # Entra no NEO PDV
-    sleep(1)
+    sleep(6)
 
     press('n') # Para pular pedido de atualizar nova versão caso apareça TODO VRRIFICAR SE FUNCIONOU
-    sleep(8)
+    sleep(2)
 
     hotkey('ctrl', 'f6') # Pega rastro da tela
     rastro = waitForPaste()
@@ -606,15 +609,22 @@ def verifica_xml(venda):
 
 def validar_nfce_neo(args=''):
 
-    xml = {
-        1: {'utrib': ['UN', 'CX', 'UN'], 'cean': ['1000000000016', '1000000000023', 'SEM GTIN']}
-    }
-
-    sleep(0.5)
-    click(1309, 263)
     sleep(1)
+    press('insert')
+    xml = {
+        1: {'utrib': ['UN'], 'cean': ['1000000000016']},
+        2: {'utrib': ['UN'], 'cean': ['1000000000016']},
+        3: {'utrib': ['UN'], 'cean': ['SEM GTIN']},
+        4: {'utrib': ['CX'], 'cean': ['1000000000023']},
+        5: {'utrib': ['CX'], 'cean': ['1000000000023']},
+        6: {'utrib': ['UN', 'CX', 'UN'], 'cean': ['1000000000016', '1000000000023', 'SEM GTIN']},
+        7: {'utrib': ['CX'], 'cean': ['1000000000023']},
+        8: {'utrib': ['CX'], 'cean': ['1000000000023']},
+    }
+    click(1309, 260) # maximiza
+    sleep(0.7)
     click(58, 180) # Primeira venda
-    sleep(0.5)
+    sleep(0.7)
 
     for venda in xml.values():
         click(930, 1002) # Scroll
@@ -625,7 +635,16 @@ def validar_nfce_neo(args=''):
         hotkey('ctrl', 'a') # Seleciona o conteudo do XML
         hotkey('ctrl', 'c') # Copia o conteudo do XML
         if verifica_xml(venda): return True
+        sleep(0.8)
+        click(1341, 260) # fechar
+        sleep(0.8)
+        clicaCentro()
+        press('down')
+        sleep(0.8)
+        copy('')
 
+    clicaCentro()
+    press('esc')
     return False
 
 def copiar_tudo(coords):
@@ -1017,6 +1036,15 @@ def cancelar_nfce(estoqueFinal):
     press('esc')
     sleep(0.8)
 
+    # Verifica as legendas
+    modulo = {
+        'pasta': 'terminal',
+        'imagem': 'legendas',
+        'inicio': '11x175',
+        'fim': '27x317'
+    }
+    sleep(0.5)
+    if imagens_diferentes(modulo): return True
     return False
 
 def ajustar_nfce(args=''):
@@ -1031,4 +1059,4 @@ def ajustar_nfce(args=''):
     click(491, 87) # Ajustar
     sleep(4)
     return False
-    # TODO VALIDAR AJUSTAR NFCE
+    # TODO VALIDAR AJUSTAR NFCE THIS IS A TEST
