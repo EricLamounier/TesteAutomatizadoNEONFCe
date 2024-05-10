@@ -18,8 +18,8 @@ def parametros_gerais(arg=''):
     modulo = {
         'pasta': 'parametrosgerais',
         'imagem': 'campopdvnfce',
-        'inicio': '1010x563',
-        'fim': '1144x591'
+        'inicio': '1012x571',
+        'fim': '1139x590'
     }
 
     if imagens_diferentes(modulo): return True
@@ -405,6 +405,8 @@ def cria_terminal(arg=''):
     press('n') # Para pular pedido de atualizar nova versão caso apareça
 
     sleep(20) # Espera atualizar
+    hotkey('ctrl', 'a') # Seleciona tudo
+    sleep(0.5)
     write(dados.banco['ip_maquina'])
     sleep(0.5)
     press('enter') # Salvar

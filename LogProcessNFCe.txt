@@ -1,6 +1,35 @@
+<<<<<<< HEAD
 10/05/2024 10:05:33 3.48.0.3
 Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 157552101/1
 
 10/05/2024 10:06:10 3.48.0.3
 Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 157552102/1
+=======
+10/05/2024 13:55:23 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545752/1
+
+10/05/2024 13:55:59 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545753/1
+
+10/05/2024 13:57:42 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545754/1
+
+10/05/2024 13:58:36 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545755/1
+
+10/05/2024 13:58:58 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545756/1
+
+10/05/2024 13:59:21 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545757/1
+
+10/05/2024 14:00:22 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545758/1
+
+10/05/2024 14:01:14 3.47.4.1
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 751545759/1
+
+10/05/2024 14:01:14 3.47.4.1
+Mensagem Original: AtualizaDadosRejeicao - Nº Fiscal/Terminal: 751545759/1
+>>>>>>> main
 

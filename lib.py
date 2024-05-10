@@ -71,7 +71,7 @@ def copia_e_cola(texto):
     return not paste() == ''
 
 def numero_aletorio():
-    numeros_aleatorios = [randint(0, 7) for _ in range(9)]
+    numeros_aleatorios = [randint(1, 7) for _ in range(9)]
     sequencia = ''.join(map(str, numeros_aleatorios))
     return  sequencia
 
