@@ -1035,9 +1035,6 @@ def cancelar_nfce(estoqueFinal):
     press('f5') # Motivo
     sleep(1.8)
 
-    press('esc')
-    sleep(0.8)
-
     # Verifica as legendas
     modulo = {
         'pasta': 'terminal',
@@ -1045,8 +1042,12 @@ def cancelar_nfce(estoqueFinal):
         'inicio': '11x175',
         'fim': '27x317'
     }
+    
     sleep(0.5)
     if imagens_diferentes(modulo): return True
+
+    press('esc')
+    sleep(0.8)
     return False
 
 def ajustar_nfce(args=''):

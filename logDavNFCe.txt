@@ -124,3 +124,129 @@ Adiciona Finalizadora [Código: 1]
 BeforeFinalizacao
 10/05/2024 13:59:12 3.47.4.1
 AfterFinalizacao
+10/05/2024 14:34:19 3.47.4.1
+Recebe a venda do Neo [-1]
+10/05/2024 14:34:19 3.47.4.1
+Identifica Origem: 985198
+10/05/2024 14:34:19 3.47.4.1
+Importação Inicializada [Origem: DAV] - [Código: 1]
+10/05/2024 14:34:19 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:34:19 3.47.4.1
+Atualiza Situação: [2]
+10/05/2024 14:34:19 3.47.4.1
+Situação atualizada com sucesso: [2]
+10/05/2024 14:34:19 3.47.4.1
+Validação dos itens para NFC-e
+10/05/2024 14:34:19 3.47.4.1
+Vende Item [Código: 1; Quantidade: 10; Unitario: 3]
+10/05/2024 14:34:19 3.47.4.1
+Insere Cliente [Código: 1]
+10/05/2024 14:34:19 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:34:19 3.47.4.1
+Atualiza Situação: [1]
+10/05/2024 14:34:19 3.47.4.1
+Situação atualizada com sucesso: [1]
+10/05/2024 14:34:19 3.47.4.1
+Adiciona Finalizadora [Código: 2]
+10/05/2024 14:34:33 3.47.4.1
+BeforeFinalizacao
+10/05/2024 14:34:33 3.47.4.1
+AfterFinalizacao
+10/05/2024 14:35:30 3.47.4.1
+Recebe a venda do Neo [1]
+10/05/2024 14:35:30 3.47.4.1
+Identifica Origem: 855794
+10/05/2024 14:35:30 3.47.4.1
+Importação Inicializada [Origem: DAV Rápido] - [Código: 1]
+10/05/2024 14:35:30 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:35:30 3.47.4.1
+Atualiza Situação: [2]
+10/05/2024 14:35:30 3.47.4.1
+Situação atualizada com sucesso: [2]
+10/05/2024 14:35:30 3.47.4.1
+Validação dos itens para NFC-e
+10/05/2024 14:35:30 3.47.4.1
+Vende Item Variação [Código: A2B2; Quantidade: 10; Unitario: 60]
+10/05/2024 14:35:30 3.47.4.1
+Insere Cliente [Código: 1]
+10/05/2024 14:35:30 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:35:30 3.47.4.1
+Atualiza Situação: [1]
+10/05/2024 14:35:30 3.47.4.1
+Situação atualizada com sucesso: [1]
+10/05/2024 14:35:30 3.47.4.1
+Adiciona Finalizadora [Código: 2]
+10/05/2024 14:36:17 3.47.4.1
+BeforeFinalizacao
+10/05/2024 14:36:17 3.47.4.1
+AfterFinalizacao
+10/05/2024 14:36:52 3.47.4.1
+Importação Inicializada [Origem: DAV] - [Código: 0]
+10/05/2024 14:36:52 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:36:52 3.47.4.1
+Atualiza Situação: [2]
+10/05/2024 14:36:52 3.47.4.1
+Situação atualizada com sucesso: [2]
+10/05/2024 14:36:55 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:36:55 3.47.4.1
+Atualiza Situação: [2]
+10/05/2024 14:36:55 3.47.4.1
+Situação atualizada com sucesso: [2]
+10/05/2024 14:36:55 3.47.4.1
+Validação dos itens para NFC-e
+10/05/2024 14:36:56 3.47.4.1
+Vende Item [Código: 2; Quantidade: 15; Unitario: 20]
+10/05/2024 14:36:56 3.47.4.1
+Insere Cliente [Código: 2]
+10/05/2024 14:36:56 3.47.4.1
+Insere Desconto Venda [0,85]
+10/05/2024 14:36:56 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:36:56 3.47.4.1
+Atualiza Situação: [1]
+10/05/2024 14:36:56 3.47.4.1
+Situação atualizada com sucesso: [1]
+10/05/2024 14:36:56 3.47.4.1
+Adiciona Finalizadora [Código: 1]
+10/05/2024 14:37:10 3.47.4.1
+BeforeFinalizacao
+10/05/2024 14:37:10 3.47.4.1
+AfterFinalizacao
+10/05/2024 14:37:14 3.47.4.1
+Importação Inicializada [Origem: DAV Rápido] - [Código: 0]
+10/05/2024 14:37:14 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:37:14 3.47.4.1
+Atualiza Situação: [2]
+10/05/2024 14:37:14 3.47.4.1
+Situação atualizada com sucesso: [2]
+10/05/2024 14:37:17 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:37:17 3.47.4.1
+Atualiza Situação: [2]
+10/05/2024 14:37:17 3.47.4.1
+Situação atualizada com sucesso: [2]
+10/05/2024 14:37:17 3.47.4.1
+Validação dos itens para NFC-e
+10/05/2024 14:37:17 3.47.4.1
+Vende Item [Código: 2; Quantidade: 2; Unitario: 20]
+10/05/2024 14:37:17 3.47.4.1
+Insere Cliente [Código: 4]
+10/05/2024 14:37:17 3.47.4.1
+Atualizar campo de "Finalizado ECF/NFC-e"
+10/05/2024 14:37:17 3.47.4.1
+Atualiza Situação: [1]
+10/05/2024 14:37:17 3.47.4.1
+Situação atualizada com sucesso: [1]
+10/05/2024 14:37:17 3.47.4.1
+Adiciona Finalizadora [Código: 1]
+10/05/2024 14:37:32 3.47.4.1
+BeforeFinalizacao
+10/05/2024 14:37:32 3.47.4.1
+AfterFinalizacao
