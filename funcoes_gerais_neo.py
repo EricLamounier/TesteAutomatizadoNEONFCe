@@ -76,7 +76,7 @@ def parametros_gerais(arg=''):
         hotkey('shift', 'tab')
     sleep(0.3)
 
-    write('pd') # PDV/NFC-e
+    write('nf') # PDV/NFC-e
     sleep(0.5)
 
     press('enter')
