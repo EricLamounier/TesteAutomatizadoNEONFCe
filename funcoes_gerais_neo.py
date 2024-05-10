@@ -474,7 +474,7 @@ def configurar_terminal(sincronizacao):
     doubleClick(615, 272) # Principal
     sleep(0.5)
 
-    write('pdv')
+    write('nf')
     sleep(0.5)
 
     press(['enter', 'enter']) # Campo Tipo de Sincronização
