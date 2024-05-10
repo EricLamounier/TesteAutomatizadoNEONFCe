@@ -18,8 +18,8 @@ def parametros_gerais(arg=''):
     modulo = {
         'pasta': 'parametrosgerais',
         'imagem': 'campopdvnfce',
-        'inicio': '1009x570',
-        'fim': '1113x592'
+        'inicio': '1010x563',
+        'fim': '1144x591'
     }
 
     if imagens_diferentes(modulo): return True
@@ -976,9 +976,9 @@ def cancelar_nfce(estoqueFinal):
 
     modulo = {
         'pasta': 'terminal',
-        'imagem': 'legendas',
-        'inicio': '15x169',
-        'fim': '42x318'
+        'imagem': 'legendas1',
+        'inicio': '11x175',
+        'fim': '27x317'
     }
     sleep(1)
     if imagens_diferentes(modulo): 
@@ -1039,7 +1039,7 @@ def cancelar_nfce(estoqueFinal):
     # Verifica as legendas
     modulo = {
         'pasta': 'terminal',
-        'imagem': 'legendas',
+        'imagem': 'legendas2',
         'inicio': '11x175',
         'fim': '27x317'
     }
