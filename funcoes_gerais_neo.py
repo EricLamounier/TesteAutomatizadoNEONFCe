@@ -976,9 +976,9 @@ def cancelar_nfce(estoqueFinal):
 
     modulo = {
         'pasta': 'terminal',
-        'imagem': 'legendas',
-        'inicio': '15x169',
-        'fim': '42x318'
+        'imagem': 'legendas1',
+        'inicio': '11x175',
+        'fim': '27x317'
     }
     sleep(1)
     if imagens_diferentes(modulo): 
@@ -1039,7 +1039,7 @@ def cancelar_nfce(estoqueFinal):
     # Verifica as legendas
     modulo = {
         'pasta': 'terminal',
-        'imagem': 'legendas',
+        'imagem': 'legendas2',
         'inicio': '11x175',
         'fim': '27x317'
     }

@@ -1,0 +1,6 @@
+10/05/2024 10:05:33 3.48.0.3
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 157552101/1
+
+10/05/2024 10:06:10 3.48.0.3
+Mensagem Original: InsertNFCeEsqueleto - Nº Fiscal/Terminal: 157552102/1
+
