@@ -41,22 +41,22 @@ etapas = [
     ('Cria Terminal NFC-e', '', [''], cria_terminal), # 28
     ('Configura Terminal NFC-e', '', [sincronizacao], configurar_terminal), # 29
     ('Entrar na NFC-e', '', [usuario], entrar_no_terminal), # 30
-    ('Venda Avulsa - Config. Checkbox', '', [''], venda_avulsa_configurar_visualizar), # 31
-    ('DAV 1 - A Prazo', '', [dav1], dav), # 32
-    ('DAV 2 - A Vista', '', [dav2], dav), # 33
-    ('DAV Rápido 1', 'sv060', [davRapido1], dav_rapido), # 34
-    ('DAV Rápido 2', 'sv060', [davRapido2], dav_rapido), # 35
-    ('Importar DAV para NFC-e', '', [dav2], importar_para_nfce), # 36
-    ('Importar DAV Rápido NFC-e', '', [davRapido2, 1], importar_para_nfce), # 37
-    ('Venda Avulsa PDV 1', '', [vendaAvulsa1], venda_nfce_1), #38
-    ('Venda Avulsa PDV 2', '', [vendaAvulsa2], venda_nfce_2), #39
-    ('Venda Avulsa PDV 3', '', [vendaAvulsa3], venda_nfce_3), #40
-    ('Conferência de XML', 'sp205', [''], validar_nfce_neo), # 41
-    ('Fechar Caixa NFC-e', '', [''], fechar_caixa), # 42
-    ('Verificar Notas - Confirmadas/Contingência', 'sp205', [''], verifica_notas_confirmadas), # 43
-    ('Cancelar NFC-e\'s', 'sp205', [estoqueFinal], cancelar_nfce), # 44
-    ('Verificar Notas - Canceladas', 'sp205', [''], verifica_notas_canceladas), # 45
-    ('Verificar Estoque Final', 'sp001', [estoqueFinal], valida_estoque_final), # 46 TODO    
+    #('Venda Avulsa - Config. Checkbox', '', [''], venda_avulsa_configurar_visualizar), # 31
+    ('DAV 1 - A Prazo', '', [dav1], dav), # 31
+    ('DAV 2 - A Vista', '', [dav2], dav), # 32
+    ('DAV Rápido 1', 'sv060', [davRapido1], dav_rapido), # 33
+    ('DAV Rápido 2', 'sv060', [davRapido2], dav_rapido), # 34
+    ('Importar DAV para NFC-e', '', [dav2], importar_para_nfce), # 35
+    ('Importar DAV Rápido NFC-e', '', [davRapido2, 1], importar_para_nfce), # 36
+    ('Venda Avulsa PDV 1', '', [vendaAvulsa1], venda_nfce_1), #37
+    ('Venda Avulsa PDV 2', '', [vendaAvulsa2], venda_nfce_2), #38
+    ('Venda Avulsa PDV 3', '', [vendaAvulsa3], venda_nfce_3), #39
+    ('Conferência de XML', 'sp205', [''], validar_nfce_neo), # 40
+    ('Fechar Caixa NFC-e', '', [''], fechar_caixa), # 41
+    ('Verificar Notas - Confirmadas/Contingência', 'sp205', [''], verifica_notas_confirmadas), # 42
+    ('Cancelar NFC-e\'s', 'sp205', [estoqueFinal], cancelar_nfce), # 43
+    ('Verificar Notas - Canceladas', 'sp205', [''], verifica_notas_canceladas), # 44
+    ('Verificar Estoque Final', 'sp001', [estoqueFinal], valida_estoque_final), # 45
 ]
 
 def smokeNFCE(start_index, insere_mensagem, step):
