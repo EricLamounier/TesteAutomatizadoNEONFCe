@@ -8,7 +8,7 @@ from tkinter import messagebox
 
 def sair(arg=''):
     press('esc')
-    sleep(0.1)
+    sleep(0.2)
 
 etapas = [
     ('Parâmetros Gerais', 'sm010', [''], parametros_gerais),  # 1 Parametros Gerais
