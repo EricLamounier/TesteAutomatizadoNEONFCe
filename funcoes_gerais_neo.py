@@ -410,7 +410,7 @@ def cria_terminal(arg=''):
     write(dados.banco['ip_maquina'])
     sleep(0.5)
     press('enter') # Salvar
-    sleep(3.5)
+    sleep(4.5)
 
     modulo = {
         'pasta': 'terminal',
