@@ -846,7 +846,7 @@ def cancelar_nfce(estoqueFinal):
     sleep(0.5)
 
     # Primeira Nota
-    press('down')
+    #press('down')
     sleep(0.3)
     press('f4') # Cancelar
     sleep(0.3)
