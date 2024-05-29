@@ -6,6 +6,8 @@ import keyboard
 from datetime import datetime
 import xml.etree.ElementTree as ET
 from os import mkdir, path
+from tkinter import messagebox
+from shutil import copy as copyImage
 
 def nao_existe_registro(texto):
     hotkey('shift', 'backspace')  # Limpa o campo
@@ -71,16 +73,42 @@ def valida_grid(registro, validacao, *data):
     
     return not chk
         
+def substitui_imagem(modulo):
+    newImage = f'{modulo['imagem']}.png'
+    try:
+        mkdir(f'./previas/{modulo['pasta']}') if not path.exists(f'./previas/{modulo['pasta']}') else True
+        print(f'./{modulo['pasta']}/{newImage}')
+        copyImage(f'./captura.png', f'./previas/{modulo['pasta']}/{modulo['imagem']}.png')
+
+    except Exception as err:
+        print(f'Erro ao copiar a nova imagem: {err}')
+        messagebox.showerror('Erro ao copiar a nova imagem', err)
+    
 def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
+
+    # Se nao existir a pasta, cria a pasta e salva a imagem
+    if not path.exists(f'./previas/{modulo['pasta']}'):
+        mkdir(f'./previas/{modulo['pasta']}')
+    
+    if not path.exists(f'./previas/{modulo['pasta']}/{modulo['imagem']}.png'):
+        substitui_imagem(modulo)
+        return False
+    
     check = captura_imagem(modulo['inicio'], modulo['fim'], modulo['pasta'], modulo['imagem'], coordenada_a_ignorar)
 
+    # Se existir a pasta mas nao a imagem salva a imagem
     if modulo['pasta'] == 'campos':
         return not check  # Iguais
     else:
         if check:  # Iguais
             return False
+    
     # São diferentes
     adicionar_log(f'ERRO - Imagem {modulo['pasta']}\\{modulo['imagem']} não confere!')
+    res = messagebox.askyesno('As imagens não conferem', 'Deseja salvar a nova imagem e continuar a execução do teste?')
+    if res:
+        substitui_imagem(modulo)
+
     return True
 
 def adicionar_log(texto):
