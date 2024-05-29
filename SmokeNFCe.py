@@ -54,6 +54,11 @@ def obter_endereco_ip():
         print(f"Erro ao obter o endereço IP: {e}")
         return None
 
+def obter_nome_maquina():
+    nome_maquina = socket.gethostname()
+    dados.banco['nome_maquina'] = nome_maquina
+    return nome_maquina
+
 def insere_regras(msg):
     message.config(state=NORMAL)
 
@@ -103,9 +108,14 @@ def change_color(msg):
 
     # Aplica a tag à linha atual
     barra_lateral.tag_add(tag_name, start_index, end_index)
+
+def forcarFechar():
+    teste = run(['taskkill', '/IM', 'python.exe', '/F'], capture_output=True, text=True)
+    messagebox.showinfo('Processo não encontrado!', teste.stderr)
     
 def atalhoPararExecucao():
     add_hotkey('alt', pararExecucao)
+    add_hotkey('delete', forcarFechar)
 
 def pararExecucao():
     hotkey('ctrl', 'shift', 'esc')
@@ -114,21 +124,6 @@ def pararExecucao():
 
 def inativar_produtos():
     messagebox.showinfo("Teste", "Teste Teste Teste Teste Teste Teste Teste...")
-    """
-    global current_line
-    largura, altura = size()
-    coordenadas_centro = (largura // 2, altura // 2)
-    click(coordenadas_centro[0], coordenadas_centro[1])
-    insere_mensagem('➤ Inativando produtos...')
-    inativar('sp001')
-    insere_mensagem('✔ Inativando produtos...', 2)
-    insere_mensagem('➤ Cancelando registros...')
-    entra_na_tela('sv004')
-    cancela()
-    entra_na_tela('sv012')
-    cancela()
-    insere_mensagem('✔ Cancelando registros...', 2)
-    """
 
 def step(val):
     num = len(etapas) # %
@@ -156,6 +151,14 @@ if __name__ == "__main__":
     ipMaquina = ttk.Entry(box_credenciais, text="ip_maquina", width=20)
     ipMaquina.grid(column=0, row=1)
     ipMaquina.insert(0, obter_endereco_ip())
+
+    nome_Maquina = ttk.Label(box_credenciais, text='Máquina')
+    nome_Maquina.grid(column=1, row=0,sticky="nsew", padx=10)
+
+    nomeMaquina = ttk.Entry(box_credenciais, text="nome_maquina", width=20)
+    nomeMaquina.grid(column=1, row=1, padx=10)
+    nomeMaquina.insert(0, obter_nome_maquina())
+    nomeMaquina['state']=DISABLED
 
     # Barra Lateral
     barra_lateral = Text(tela, state=DISABLED, width=36, height=10)
