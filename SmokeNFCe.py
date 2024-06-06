@@ -121,7 +121,11 @@ def pararExecucao():
     hotkey('ctrl', 'shift', 'esc')
     dados.forcaCancelaExecucao['status'] = True
     messagebox.showinfo("Parando Teste", "Aguarde a finalização dessa etapa ou bloqueie seu computador para parar imediatamente...")
-
+    
+def forcarFechar():
+    teste = run(['taskkill', '/IM', 'python.exe', '/F'], capture_output=True, text=True)
+    messagebox.showinfo('Processo não encontrado!', teste.stderr)
+    
 def inativar_produtos():
     messagebox.showinfo("Teste", "Teste Teste Teste Teste Teste Teste Teste...")
 
@@ -170,7 +174,7 @@ if __name__ == "__main__":
     limpar = ttk.Button(lateralBox, text="Limpar", command=limpa)
     limpar.grid(column=0, row=0)
 
-    inativarBttn = ttk.Button(lateralBox, text="!Manutenção!", command=inativar_produtos)
+    inativarBttn = ttk.Button(lateralBox, text="Forçar Fechar (DEL)", command=forcarFechar)
     inativarBttn.grid(column=1, row=0)
 
     parar = ttk.Button(lateralBox, text="Parar Execução (ALT)", command=pararExecucao)
