@@ -615,7 +615,7 @@ def validar_nfce_neo(args=''):
     press('insert')
     xml = {
         1: {'utrib': ['UN'], 'cean': ['1000000000016']},
-        2: {'utrib': ['UN'], 'cean': ['1000000000016']},
+        #2: {'utrib': ['UN'], 'cean': ['1000000000016']},
         3: {'utrib': ['UN'], 'cean': ['SEM GTIN']},
         4: {'utrib': ['CX'], 'cean': ['1000000000023']},
         5: {'utrib': ['CX'], 'cean': ['1000000000023']},
