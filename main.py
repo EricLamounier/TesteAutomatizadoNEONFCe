@@ -80,3 +80,4 @@ def smokeNFCE(start_index, insere_mensagem, step):
             step(cont)
 
     insere_mensagem('✔ Teste Finalizado!')
+    messagebox.showinfo('Finalizado com Sucesso!', 'Teste Finalizado com Sucesso!')
