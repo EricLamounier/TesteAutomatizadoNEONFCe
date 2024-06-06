@@ -710,7 +710,6 @@ def verifica_notas_confirmadas(args=''):
     # Valida antes de cancelar
     # Nota 1
     sleep(0.5)
-    press('down')
     if situacao_notas('confirmado') or produtos_nota(1, 1): 
         return True
     
@@ -757,7 +756,6 @@ def verifica_notas_canceladas(args=''):
     # Valida antes de cancelar
     # Nota 1
     sleep(0.5)
-    press('down')
     if situacao_notas('cancelado') or produtos_nota(0, 1): 
         return True
     
@@ -984,7 +982,7 @@ def cancelar_nfce(estoqueFinal):
     }
     sleep(1)
     if imagens_diferentes(modulo): 
-        messagebox.showerror('Erro - Legendas NFC-e', 'As legendas devem estar na ordem:\n\nConfirmado\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nConfirmado')
+        messagebox.showerror('Erro - Legendas NFC-e', 'As legendas devem estar na ordem:\n\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nConfirmado')
         return True
 
     ajustar_nfce()

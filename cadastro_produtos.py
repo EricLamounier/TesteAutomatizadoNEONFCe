@@ -231,4 +231,6 @@ def valida_estoque_final(produtos):
         if valida_grid(prod['produto'], prod['validacao'], 18): 
             messagebox.showerror('Erro - Produto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
             return True
+        
+    press('esc')
     return False
