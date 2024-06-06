@@ -41,7 +41,6 @@ etapas = [
     ('Cria Terminal NFC-e', '', [''], cria_terminal), # 28
     ('Configura Terminal NFC-e', '', [sincronizacao], configurar_terminal), # 29
     ('Entrar na NFC-e', '', [usuario], entrar_no_terminal), # 30
-    #('Venda Avulsa - Config. Checkbox', '', [''], venda_avulsa_configurar_visualizar), # 31
     ('DAV 1 - A Prazo', '', [dav1], dav), # 31
     ('DAV 2 - A Vista', '', [dav2], dav), # 32
     ('DAV Rápido 1', 'sv060', [davRapido1], dav_rapido), # 33
