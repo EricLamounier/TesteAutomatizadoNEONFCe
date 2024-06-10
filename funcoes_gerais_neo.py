@@ -434,7 +434,7 @@ def cria_terminal(arg=''):
         'inicio': '843x485',
         'fim': '1077x582'
     }
-
+    sleep(2)
     if imagens_diferentes(modulo): return True # Terminal nao foi sincronizado
     sleep(0.7)
 
@@ -837,6 +837,7 @@ def fechar_caixa(args=''):
 
 def cancelar_nfce(estoqueFinal):
 
+    """
     press('insert') # Sai do filtro
     sleep(0.8)
 
@@ -950,6 +951,7 @@ def cancelar_nfce(estoqueFinal):
     sleep(0.3)
     press('f5') # Motivo
     sleep(1)
+    """
 
     # Sétima Nota ( Deve estar confirmada )
     press('down')
