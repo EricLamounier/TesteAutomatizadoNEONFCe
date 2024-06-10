@@ -108,6 +108,7 @@ def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
     res = messagebox.askyesno('As imagens não conferem', 'Deseja salvar a nova imagem e continuar a execução do teste?')
     if res:
         substitui_imagem(modulo)
+        return False
 
     return True
 
