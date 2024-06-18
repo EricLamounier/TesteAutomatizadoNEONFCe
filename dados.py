@@ -33,8 +33,8 @@ finalizadora2 = {
     'transacao': -1,
     'desconto': '0',
     'habPromocao': 'nao',
-    'meioPagamento': 'credito loja',  
-    'validacao': ['A prazo', '2', 'Outros', 'S', 'N', 'S', 'N', 'F4', 'Crédito Loja', 'N', 'N', '1']
+    'meioPagamento': 'cartao da',  # Credito Loja / Crédito em Loja
+    'validacao': ['A prazo', '2', 'Outros', 'S', 'N', 'S', 'N', 'F4', 'Cartão da Loja (Private Label)', 'N', 'N', '1']
 }
 
 finalizadora3 = {
@@ -113,6 +113,10 @@ transacao3 = {
 
 validacaoTransacoes = {'validacao': ['Crédito 2x', 'Elo', 'Cartão a Receber', '0', '1,20', '0,00', 'Parcelado', 'S', 'S', 'Crédito a Vista', 'Elo', 'Cartão a Receber', '0', '1,00', '0,00', 'Crédito', 'S', 'S', 'Débito', 'Elo', 'Cartão a Receber', '0', '0,50', '0,00', 'Débito', 'S', 'S', ''], }
 
+validacaoTerminal = {
+    1: ['\nInformação', '\n---------------------------', '\nTerminal NFC-e configurado com sucesso.', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n'],
+    2: ['\nInformação', '\n---------------------------', '\nO sistema precisa ser reiniciado.', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n'],
+}
 # Cliente Classificação
 classificacao1 = {
     'classificacao': 'Bloqueia Limite',
@@ -237,9 +241,9 @@ formaPagamento2 = { # A prazo
     'utiliza': '0',
     'ajusteCentavos': '0',
     'desconto': '0',
-    'meioPagamento': 'credito loja',
+    'meioPagamento': 'cartao da', # credito em loja / crédito loja
     'finalizadora': '2',
-    'validacao': ['A Prazo', '2', 'Crediário', '0', '2', 'N', '0', 'S', 'Ambos', 'Crédito Loja', '', 'A prazo']
+    'validacao': ['A Prazo', '2', 'Crediário', '0', '2', 'N', '0', 'S', 'Ambos', 'Cartão da Loja (Private Label)', '', 'A prazo']
 }
 
 sincronizacao = {
@@ -264,7 +268,7 @@ dav1 = {
          'barras': '1000000000016', 
          'quantidade': '10', 
          'desconto': '0',
-         'validacao':['#produto1', '1', '1000000000016', '2,59', '3,00', '291,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '103', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '290,000', '2,59', 'UN', '0', 'T', 'T', '1001.19.00', '', '0,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '0,00', '0,00', '5.102', '0,000', '0,000', '0,00', '0,00', '15,83', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '']
+         'validacao':['#produto1', '1', '1000000000016', '2,59', '3,00', '291,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '103', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '291,000', '2,59', 'UN', '0', 'T', 'T', '1001.19.00', '', '0,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '0,00', '0,00', '5.102', '0,000', '0,000', '0,00', '0,00', '15,83', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '']
          }
     ],
     'validacaoVenda': ['', '1', 'P', '10,00', '1', '1000000000016', '', '#produto1', '5.102', '3,00', '0,00', '0,00', '30,00', '', '#pessoaresponsável', '1001.19.00', '-- Outros', '5.102', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Unidade'],
@@ -507,6 +511,10 @@ unidadeTributavel = {
     'simbolo': 'cx',
     'barras': '012345678912',
     'quantidade': '5'
+}
+
+valicadaoCancelarNfce = {
+    1: ['\nInformação', '\n---------------------------', '\nNFC-e deve estar confirmada para ser cancelada.', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n'],
 }
 
 estoqueFinal = {

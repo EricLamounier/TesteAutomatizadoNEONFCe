@@ -373,11 +373,12 @@ def cadastro_forma_pagamento(formaPagamento):
     keyboard.write(formaPagamento['meioPagamento']) # Seleciona o meio de pagamento
     sleep(0.7)
     press('enter')
-    sleep(0.1)
+    sleep(0.5)
+    doubleClick(611, 436)
+    sleep(0.5)
     press(['enter', 'enter'])
     sleep(0.2)
     write(formaPagamento['finalizadora'])
-
     press('insert') # Salva
     sleep(0.6)
 
@@ -389,7 +390,7 @@ def cadastro_forma_pagamento(formaPagamento):
     press('esc')
     return chk # Nao há erro
 
-def cria_terminal(arg=''):
+def cria_terminal(validacaoTerminal):
     abre_exe_pdv()
     sleep(2)
 
@@ -412,23 +413,25 @@ def cria_terminal(arg=''):
     press('enter') # Salvar
     sleep(4.5)
 
-    modulo = {
+    """modulo = {
         'pasta': 'terminal',
         'imagem': 'terminalconfigurado',
         'inicio': '858x492',
         'fim': '1105x579'
     }
 
-    if imagens_diferentes(modulo): return True # Terminal nao foi configurado
+    if imagens_diferentes(modulo): return True # Terminal nao foi configurado"""
+    if valida_grid('', validacaoTerminal[1]): return True
+
     sleep(0.3)
     press('enter') # Configurado com sucesso OK
     sleep(0.7)
 
     press('s') # Sincronizar terminais
-    sleep(35)
+    sleep(30)
 
     # Verifica se foi criado
-    modulo = {
+    """modulo = {
         'pasta': 'terminal',
         'imagem': 'sincronizado',
         'inicio': '843x485',
@@ -436,7 +439,9 @@ def cria_terminal(arg=''):
     }
     sleep(2)
     if imagens_diferentes(modulo): return True # Terminal nao foi sincronizado
-    sleep(0.7)
+    sleep(0.7)"""
+
+    if valida_grid('', validacaoTerminal[2]): return True
 
     press('enter') # O sistema precisa ser reiniciado "OK"
     click(955, 560) # Preocaução "OK"
@@ -835,9 +840,8 @@ def fechar_caixa(args=''):
 
     return False
 
-def cancelar_nfce(estoqueFinal):
+def cancelar_nfce(validacaoCancelarNfce):
 
-    """
     press('insert') # Sai do filtro
     sleep(0.8)
 
@@ -845,7 +849,6 @@ def cancelar_nfce(estoqueFinal):
     sleep(0.5)
 
     # Primeira Nota
-    #press('down')
     sleep(0.3)
     press('f4') # Cancelar
     sleep(0.3)
@@ -924,10 +927,6 @@ def cancelar_nfce(estoqueFinal):
     press('down')
     sleep(0.5)
 
-    # Estorna cartao 2
-    hotkey('ctrl', 'e')
-    press('s') # Confirma
-    sleep(1)
     press('esc')
     sleep(2)
     press('esc')
@@ -951,9 +950,9 @@ def cancelar_nfce(estoqueFinal):
     sleep(0.3)
     press('f5') # Motivo
     sleep(1)
-    """
 
     # Sétima Nota ( Deve estar confirmada )
+    sleep(3)
     press('down')
     sleep(2.5)
     press('f4') # Cancelar
@@ -972,6 +971,9 @@ def cancelar_nfce(estoqueFinal):
     }
     sleep(2.5)
     if imagens_diferentes(modulo): return True
+
+    if valida_grid('', validacaoCancelarNfce[1]): return True
+
     press('enter') # Ok
 
     press('down')
@@ -982,15 +984,16 @@ def cancelar_nfce(estoqueFinal):
         'inicio': '11x175',
         'fim': '27x317'
     }
-    sleep(1)
+    sleep(3)
     if imagens_diferentes(modulo): 
         messagebox.showerror('Erro - Legendas NFC-e', 'As legendas devem estar na ordem:\n\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nConfirmado')
         return True
 
     ajustar_nfce()
+    sleep(2)
     sleep(0.7)
 
-    click(65, 309)
+    click(68, 290)
 
     press('f4') # Cancelar
     sleep(0.8)
@@ -998,7 +1001,6 @@ def cancelar_nfce(estoqueFinal):
     press('s') # Confirma
     sleep(0.7)
     press('f5') # Motivo
-    sleep(3)
 
     modulo = {
         'pasta': 'terminal',
@@ -1006,7 +1008,7 @@ def cancelar_nfce(estoqueFinal):
         'inicio': '562x423',
         'fim': '1358x614'
     }
-    sleep(2)
+    sleep(2.5)
     if imagens_diferentes(modulo): return True
     press('esc')
     sleep(0.5)
@@ -1043,7 +1045,7 @@ def cancelar_nfce(estoqueFinal):
         'fim': '27x317'
     }
     
-    sleep(0.5)
+    sleep(1.5)
     if imagens_diferentes(modulo): return True
 
     press('esc')
@@ -1054,7 +1056,7 @@ def ajustar_nfce(args=''):
     # Ajustar NFC-e
     click(491, 87) # Ajustar
     sleep(0.5)
-    click(29, 311) # Nota aberta
+    click(31, 293) # Nota aberta
     sleep(0.5)
     click(655, 84) # Executar
     sleep(0.5)
