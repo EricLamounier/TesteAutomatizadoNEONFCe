@@ -38,7 +38,7 @@ etapas = [
     ('Ajuste de Estoque Produto 3', 'sp001', [produto3], ajustar_estoque), # 25
     ('Cad. Forma Pagamento - A vista', 'sv020', [formaPagamento1], cadastro_forma_pagamento), # 26
     ('Cad. Forma Pagamento - A prazo', 'sv020', [formaPagamento2], cadastro_forma_pagamento), # 27
-    ('Cria Terminal NFC-e', '', [''], cria_terminal), # 28
+    ('Cadastro Terminal NFC-e', '', [validacaoTerminal], cria_terminal), # 28
     ('Configura Terminal NFC-e', '', [sincronizacao], configurar_terminal), # 29
     ('Entrar na NFC-e', '', [usuario], entrar_no_terminal), # 30
     ('DAV 1 - A Prazo', '', [dav1], dav), # 31
@@ -53,7 +53,7 @@ etapas = [
     ('Conferência de XML', 'sp205', [''], validar_nfce_neo), # 40
     ('Fechar Caixa NFC-e', '', [''], fechar_caixa), # 41
     ('Verificar Notas - Confirmadas/Contingência', 'sp205', [''], verifica_notas_confirmadas), # 42
-    ('Cancelar NFC-e\'s', 'sp205', [estoqueFinal], cancelar_nfce), # 43
+    ('Cancelar NFC-e\'s', 'sp205', [valicadaoCancelarNfce], cancelar_nfce), # 43
     ('Verificar Notas - Canceladas', 'sp205', [''], verifica_notas_canceladas), # 44
     ('Verificar Estoque Final', 'sp001', [estoqueFinal], valida_estoque_final), # 45
 ]

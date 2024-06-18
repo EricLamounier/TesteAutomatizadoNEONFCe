@@ -60,8 +60,13 @@ def show_errors(previa, captura, modulo, coordenadas_a_ignorar=(0, 0, 0, 0)):
         highlight_differences(previa, captura, nova_captura)
         nova_imagem[:h, :w, :] = nova_previa
         nova_imagem[:h, w + 10:w * 2 + 10, :] = nova_captura
+        
+        cv2.namedWindow('Imagens diferentes!', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('Imagens diferentes!', nova_imagem.shape[1], nova_imagem.shape[0])
+
+        cv2.setWindowProperty('Imagens diferentes!', cv2.WND_PROP_TOPMOST, 1)
+        
         cv2.imshow('Imagens diferentes!', nova_imagem)
-        #messagebox.showerror("Erro!", "Imagens diferem, verifique-as!")
         cv2.waitKey(0)
         cv2.destroyAllWindows()
     

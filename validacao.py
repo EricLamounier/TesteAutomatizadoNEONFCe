@@ -37,6 +37,7 @@ def valida_grid(registro, validacao, *data):
         coordenadas_centro = (largura // 2, altura // 2)
         coords =  coordenadas_centro
         rightClick(coords[0], coords[1]) # Clica no centro
+        hotkey('ctrl', 'c')
         sleep(0.75)
         press('t') # Copia tudo
         sleep(0.4)
@@ -106,6 +107,10 @@ def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
     # São diferentes
     adicionar_log(f'ERRO - Imagem {modulo['pasta']}\\{modulo['imagem']} não confere!')
     res = messagebox.askyesno('As imagens não conferem', 'Deseja salvar a nova imagem e continuar a execução do teste?')
+    
+    sleep(1)
+    click(960, 528) # clica no centro da tela
+    
     if res:
         substitui_imagem(modulo)
         return False
