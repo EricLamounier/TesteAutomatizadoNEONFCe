@@ -924,8 +924,6 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'e')
     press('s') # Confirma
     sleep(1)
-    press('down')
-    sleep(0.5)
 
     press('esc')
     sleep(2)
