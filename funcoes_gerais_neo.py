@@ -643,7 +643,7 @@ def validar_nfce_neo(args=''):
         hotkey('ctrl', 'c') # Copia o conteudo do XML
         if verifica_xml(venda): return True
         sleep(0.8)
-        click(1341, 260) # fechar
+        click(1338, 259) # fechar
         sleep(0.8)
         clicaCentro()
         press('down')
