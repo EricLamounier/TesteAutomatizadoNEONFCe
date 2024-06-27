@@ -428,7 +428,7 @@ def cria_terminal(validacaoTerminal):
     sleep(0.7)
 
     press('s') # Sincronizar terminais
-    sleep(30)
+    sleep(35)
 
     # Verifica se foi criado
     """modulo = {
