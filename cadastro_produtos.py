@@ -154,6 +154,7 @@ def ajustar_estoque(produto): # Ajusta estoque do produto variação
     chk = valida_grid('', produto['validacaoAjusteEstoque'], 18)
     if chk:
         messagebox.showerror('Erro - Ajuste Produto - ' + produto['cod'], 'Esperado: ' + str(produto['validacao']))
+        return chk
 
     sleep(0.3)
     press('esc') # Sai
@@ -175,12 +176,13 @@ def cadastro_variacao_produto(variacao):
     press('enter') # Incluir     
 
 def cadastro_unidade_tributavel(unidadeTributavel):
+    
     sleep(0.8)
     keyboard.write(unidadeTributavel['produto'])
     sleep(0.5)
     press('insert') # Sai do filtro
     sleep(0.8)
-
+    """
     hotkey('ctrl', 'tab') # Complementar
     sleep(1)
 
@@ -208,9 +210,19 @@ def cadastro_unidade_tributavel(unidadeTributavel):
     write(unidadeTributavel['quantidade'])
     sleep(0.2)
     press('insert')
-    sleep(0.4)
+    sleep(1)
+    """
+
+    # VALIDA PRODUTO
+    chk = valida_grid('', unidadeTributavel['validacao'], 18)
+    if chk:
+        messagebox.showerror('Erro', 'Erro - Produto com Unidade Tributável Errada!')
+        return True
+
     press('esc')
     sleep(1)
+    print('oi')
+    return True
 
     rastro = ''
     hotkey('ctrl', 'f6')
