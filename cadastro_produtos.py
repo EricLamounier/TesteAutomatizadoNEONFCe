@@ -221,8 +221,6 @@ def cadastro_unidade_tributavel(unidadeTributavel):
 
     press('esc')
     sleep(1)
-    print('oi')
-    return True
 
     rastro = ''
     hotkey('ctrl', 'f6')
