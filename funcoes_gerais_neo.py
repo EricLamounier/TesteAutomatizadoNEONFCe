@@ -817,13 +817,13 @@ def fechar_caixa(args=''):
         'inicio': '656x301',
         'fim': '1282x721'
     }
-    sleep(1)
+    sleep(2.5)
     if imagens_diferentes(modulo): return True
 
     press('enter') # Confirma fechamento
     sleep(0.6)
     press('s')
-    sleep(2)
+    sleep(4)
 
     modulo = {
         'pasta': 'terminal',
@@ -909,7 +909,7 @@ def cancelar_nfce(validacaoCancelarNfce):
         'inicio': '562x423',
         'fim': '1358x614'
     }
-    sleep(3)
+    sleep(5)
     if imagens_diferentes(modulo): return True
     press('esc')
     sleep(0.5)
@@ -967,7 +967,7 @@ def cancelar_nfce(validacaoCancelarNfce):
         'inicio': '837x489',
         'fim': '1121x537'
     }
-    sleep(2.5)
+    sleep(4.5)
     if imagens_diferentes(modulo): return True
 
     if valida_grid('', validacaoCancelarNfce[1]): return True
@@ -982,7 +982,7 @@ def cancelar_nfce(validacaoCancelarNfce):
         'inicio': '11x175',
         'fim': '27x317'
     }
-    sleep(3)
+    sleep(5)
     if imagens_diferentes(modulo): 
         messagebox.showerror('Erro - Legendas NFC-e', 'As legendas devem estar na ordem:\n\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nCancelado\nConfirmado')
         return True
@@ -1006,7 +1006,7 @@ def cancelar_nfce(validacaoCancelarNfce):
         'inicio': '562x423',
         'fim': '1358x614'
     }
-    sleep(2.5)
+    sleep(4.5)
     if imagens_diferentes(modulo): return True
     press('esc')
     sleep(0.5)
@@ -1043,7 +1043,7 @@ def cancelar_nfce(validacaoCancelarNfce):
         'fim': '27x317'
     }
     
-    sleep(1.5)
+    sleep(2.5)
     if imagens_diferentes(modulo): return True
 
     press('esc')

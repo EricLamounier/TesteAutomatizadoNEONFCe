@@ -136,6 +136,7 @@ def step(val):
     porcentagem['text'] = str(porcent) + '%'
 
 if __name__ == "__main__":
+    print('Aguarde, carregando...')
     tela = Tk()
     tela.title(WINDOW_TITLE)
     tela.iconbitmap(ICON_PATH)
@@ -215,5 +216,7 @@ if __name__ == "__main__":
     versao_label.grid(column=0, row=7, columnspan=4)
 
     insere_regras(mensagem_inicial)
+
+    print(' ⮕ Carregado!')
 
     tela.mainloop()
