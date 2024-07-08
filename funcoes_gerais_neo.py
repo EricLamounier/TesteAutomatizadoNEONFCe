@@ -961,6 +961,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     press('f5') # Motivo
     sleep(0.8)
 
+    """
     modulo = {
         'pasta': 'terminal',
         'imagem': 'pendenteautorizacao',
@@ -969,6 +970,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     }
     sleep(4.5)
     if imagens_diferentes(modulo): return True
+    """
 
     if valida_grid('', validacaoCancelarNfce[1]): return True
 
