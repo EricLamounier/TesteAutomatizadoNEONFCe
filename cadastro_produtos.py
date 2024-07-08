@@ -182,7 +182,7 @@ def cadastro_unidade_tributavel(unidadeTributavel):
     sleep(0.5)
     press('insert') # Sai do filtro
     sleep(0.8)
-    """
+ 
     hotkey('ctrl', 'tab') # Complementar
     sleep(1)
 
@@ -211,7 +211,7 @@ def cadastro_unidade_tributavel(unidadeTributavel):
     sleep(0.2)
     press('insert')
     sleep(1)
-    """
+  
 
     # VALIDA PRODUTO
     chk = valida_grid('', unidadeTributavel['validacao'], 18)
