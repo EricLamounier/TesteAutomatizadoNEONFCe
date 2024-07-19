@@ -162,7 +162,7 @@ def dav(venda):
             'pasta': 'notas',
             'imagem': 'dav1',
             'inicio': '810x58',
-            'fim': '1086x330'
+            'fim': '1086x340'
         }
 
         sleep(0.5)
@@ -352,7 +352,7 @@ def importar_para_nfce(venda, tipo=0):
         'pasta': 'notas',
         'imagem': 'dav2',
         'inicio': '810x58',
-        'fim': '1086x354'
+        'fim': '1086x370'
     }
 
     if tipo: # DAV RAPIDO
@@ -416,7 +416,7 @@ def venda_nfce_1(venda):
         'pasta': 'notas',
         'imagem': 'pdv1',
         'inicio': '810x58',
-        'fim': '1086x380'
+        'fim': '1086x400'
     }
 
     if imagens_diferentes(modulo): return True
@@ -506,7 +506,7 @@ def venda_nfce_2(venda):
         'pasta': 'notas',
         'imagem': 'pdv2',
         'inicio': '810x58',
-        'fim': '1086x330'
+        'fim': '1086x350'
     }
 
     sleep(4.5)    
@@ -634,7 +634,7 @@ def venda_nfce_3(venda):
         'pasta': 'terminal',
         'imagem': 'semPermissao',
         'inicio': '786x584',
-        'fim': '1089x628'
+        'fim': '1100x628'
     }
 
     sleep(0.6)
@@ -677,7 +677,7 @@ def venda_nfce_3(venda):
         'pasta': 'notas',
         'imagem': 'pdv3',
         'inicio': '810x58',
-        'fim': '1086x390'
+        'fim': '1086x400'
     }
 
     sleep(4.5)    

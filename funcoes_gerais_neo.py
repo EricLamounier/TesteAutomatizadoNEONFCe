@@ -545,7 +545,13 @@ def entrar_no_terminal(usuario):
     sleep(6)
 
     press('n') # Para pular pedido de atualizar nova versão caso apareça TODO VRRIFICAR SE FUNCIONOU
-    sleep(2)
+    sleep(1)
+    press('backspace')
+    sleep(0.5)
+    write('1')
+    sleep(0.5)
+    press('enter')
+    sleep(0.5)
 
     hotkey('ctrl', 'f6') # Pega rastro da tela
     rastro = waitForPaste()
