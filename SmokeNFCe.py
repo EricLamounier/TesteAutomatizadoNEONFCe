@@ -135,8 +135,9 @@ def step(val):
     progressbar['value'] = porcent
     porcentagem['text'] = str(porcent) + '%'
 
+print('Aguarde, carregando...')
+
 if __name__ == "__main__":
-    print('Aguarde, carregando...')
     tela = Tk()
     tela.title(WINDOW_TITLE)
     tela.iconbitmap(ICON_PATH)
