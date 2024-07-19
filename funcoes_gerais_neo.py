@@ -923,7 +923,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'shift', 'r') # Aba complementar
     sleep(2)
 
-    click(851, 614) # Cartoes
+    click(996, 609) # Cartoes
     sleep(2)
 
     # Estorna cartao 1
@@ -1022,7 +1022,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'shift', 'r') # Aba complementar
     sleep(1.5)
 
-    click(851, 614) # Cartoes
+    click(996, 609) # Cartoes
     sleep(1.5)
 
     # Estorna cartao 1
