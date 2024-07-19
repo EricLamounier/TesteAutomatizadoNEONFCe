@@ -84,7 +84,23 @@ def substitui_imagem(modulo):
     except Exception as err:
         print(f'Erro ao copiar a nova imagem: {err}')
         messagebox.showerror('Erro ao copiar a nova imagem', err)
+
+def captura_imagem_naoexistente(inicio, fim):
+    top, left = map(int, inicio.split("x"))
+    bottom, right = map(int, fim.split("x"))
+
+    width = right - left
+    height = bottom - top
+    captura = screenshot(region=(top, left, height, width))
     
+    # Verifica se a captura foi bem-sucedida
+    if captura is None:
+        print("Erro ao capturar a imagem.")
+        return False
+    
+    captura.save('captura.png')
+    cap = cv2.imread('./captura.png')
+
 def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
 
     # Se nao existir a pasta, cria a pasta e salva a imagem
@@ -92,6 +108,7 @@ def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
         mkdir(f'./previas/{modulo['pasta']}')
     
     if not path.exists(f'./previas/{modulo['pasta']}/{modulo['imagem']}.png'):
+        captura_imagem_naoexistente(modulo['inicio'], modulo['fim']);
         substitui_imagem(modulo)
         return False
     
