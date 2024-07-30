@@ -410,7 +410,7 @@ def venda_nfce_1(venda):
     click(953, 554)
     sleep(0.3)
     press('enter')
-    sleep(6)
+    sleep(7.5)
 
     modulo = {
         'pasta': 'notas',
@@ -509,7 +509,7 @@ def venda_nfce_2(venda):
         'fim': '1086x350'
     }
 
-    sleep(4.5)    
+    sleep(7.5)    
     if imagens_diferentes(modulo): return True
 
     if notas(venda['nota']): return True
@@ -680,7 +680,7 @@ def venda_nfce_3(venda):
         'fim': '1086x400'
     }
 
-    sleep(4.5)    
+    sleep(6.5)    
     if imagens_diferentes(modulo): return True
     
     sleep(3)
