@@ -423,9 +423,9 @@ def cria_terminal(validacaoTerminal):
     if imagens_diferentes(modulo): return True # Terminal nao foi configurado"""
     if valida_grid('', validacaoTerminal[1]): return True
 
-    sleep(0.3)
+    sleep(1)
     press('enter') # Configurado com sucesso OK
-    sleep(0.7)
+    sleep(1)
 
     press('s') # Sincronizar terminais
     sleep(35)

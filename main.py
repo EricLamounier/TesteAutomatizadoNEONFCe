@@ -47,9 +47,9 @@ etapas = [
     ('DAV Rápido 2', 'sv060', [davRapido2], dav_rapido), # 34
     ('Importar DAV para NFC-e', '', [dav2], importar_para_nfce), # 35
     ('Importar DAV Rápido NFC-e', '', [davRapido2, 1], importar_para_nfce), # 36
-    ('Venda Avulsa PDV 1', '', [vendaAvulsa1], venda_nfce_1), #37
-    ('Venda Avulsa PDV 2', '', [vendaAvulsa2], venda_nfce_2), #38
-    ('Venda Avulsa PDV 3', '', [vendaAvulsa3], venda_nfce_3), #39
+    ('Venda Avulsa NFC-e 1', '', [vendaAvulsa1], venda_nfce_1), #37
+    ('Venda Avulsa NFC-e 2', '', [vendaAvulsa2], venda_nfce_2), #38
+    ('Venda Avulsa NFC-e 3', '', [vendaAvulsa3], venda_nfce_3), #39
     ('Conferência de XML', 'sp205', [''], validar_nfce_neo), # 40
     ('Fechar Caixa NFC-e', '', [''], fechar_caixa), # 41
     ('Verificar Notas - Confirmadas/Contingência', 'sp205', [''], verifica_notas_confirmadas), # 42
