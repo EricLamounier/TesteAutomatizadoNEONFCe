@@ -1,4 +1,6 @@
-from os.path import join, dirname
+from os.path import join, dirname, exists
+from shutil import copytree
+from os import mkdir
 from tkinter import Tk, Text, Listbox, messagebox, DISABLED, NORMAL, END, SINGLE
 from pyautogui import click, size, hotkey
 from threading import Thread
@@ -26,6 +28,11 @@ def inicia_opcao(opcoes_menu, opt, ip_maquina):
     dados.banco['ip_maquina'] = ip_maquina.get()  # Pega o ip da maquina
 
     if dados.banco['ip_maquina'] == '10.1.10.-' or dados.banco['ip_maquina'] == '': dados.banco['ip_maquina'] = '127.0.0.1'
+
+    # Verifica se existe a pasta do usuario em questão
+    dirImagens = r"./Imagens/" + dados.banco['nome_maquina']
+    if not exists(dirImagens):
+        copytree(r"./Imagens/Previas", dirImagens)
 
     largura, altura = size()
     coordenadas_centro = (largura // 2, altura // 2)
@@ -135,8 +142,6 @@ def step(val):
     progressbar['value'] = porcent
     porcentagem['text'] = str(porcent) + '%'
 
-print('Aguarde, carregando...')
-
 if __name__ == "__main__":
     tela = Tk()
     tela.title(WINDOW_TITLE)
@@ -217,7 +222,5 @@ if __name__ == "__main__":
     versao_label.grid(column=0, row=7, columnspan=4)
 
     insere_regras(mensagem_inicial)
-
-    print(' ⮕ Carregado!')
 
     tela.mainloop()

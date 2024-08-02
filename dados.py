@@ -1,6 +1,6 @@
 forcaCancelaExecucao = { 'status': False}
 
-banco = { 'ip_maquina': '127.0.0.1' }
+banco = { 'ip_maquina': '127.0.0.1', 'nome_maquina': '' }
 
 erros = { 'cont': 0, 'janela': [] }
 

@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
-from pyautogui import screenshot
+from pyautogui import screenshot, size
+import dados
 
 def merge_overlapping_rectangles(rectangles, padding):
     merged_rectangles = []
@@ -42,7 +43,7 @@ def show_errors(previa, captura, modulo, coordenadas_a_ignorar=(0, 0, 0, 0)):
     fonte = cv2.FONT_HERSHEY_SIMPLEX
     cv2.putText(nova_imagem, 'Esperado', (10, h + 25), fonte, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
     cv2.putText(nova_imagem, 'Capturado', (w + 20, h + 25), fonte, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-
+    
     mascara_ignorar = np.zeros((h, w), dtype=np.uint8)
     mascara_ignorar[coordenadas_a_ignorar[1]:coordenadas_a_ignorar[3], coordenadas_a_ignorar[0]:coordenadas_a_ignorar[2]] = 255
 
@@ -104,12 +105,21 @@ def highlight_differences(previa, capturada, resultado):
 
         resultado[y:y+h, x:x+w, 2] = resultado[y:y+h, x:x+w, 2] * (1 - transparency) + 255 * transparency
 
+def calcular_xy(coordenada):
+        screen_width, screen_height = size()
+        x, y = map(int, coordenada.split("x"))
+        x = (screen_width / 2) + (x - 960)
+        y = (screen_height / 2) + (y - 540)
+        return x, y
+        
 def captura_imagem(inicio, fim, modulo, imagem, coordenadas_a_ignorar):
-    top, left = map(int, inicio.split("x"))
-    bottom, right = map(int, fim.split("x"))
+     
+    top, left = calcular_xy(top, left)
+    bottom, right = calcular_xy(bottom, right)
 
     width = right - left
     height = bottom - top
+    
     captura = screenshot(region=(top, left, height, width))
     
     # Verifica se a captura foi bem-sucedida
@@ -120,6 +130,7 @@ def captura_imagem(inicio, fim, modulo, imagem, coordenadas_a_ignorar):
     captura.save('captura.png')
     cap = cv2.imread('./captura.png')
     
-    imagem_previa = cv2.imread('./Previas/' + modulo + '/' + imagem + '.png')
+    #imagem_previa = cv2.imread('./Previas/' + modulo + '/' + imagem + '.png') # TODO REMOVER
+    imagem_previa = cv2.imread(f"./Imagens/{dados.banco['nome_maquina']}/{modulo}/{imagem}.png") # TODO TESTAR
 
     return show_errors(imagem_previa, cap, modulo, coordenadas_a_ignorar)

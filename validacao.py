@@ -8,6 +8,7 @@ import xml.etree.ElementTree as ET
 from os import mkdir, path
 from tkinter import messagebox
 from shutil import copy as copyImage
+import dados
 
 def nao_existe_registro(texto):
     hotkey('shift', 'backspace')  # Limpa o campo
@@ -74,12 +75,12 @@ def valida_grid(registro, validacao, *data):
     
     return not chk
         
-def substitui_imagem(modulo):
+def substitui_imagem(modulo): #TODO MUDAR DE PREVIAS PARA O NOME DA MAQUINA | TESTAR
     newImage = f'{modulo['imagem']}.png'
     try:
-        mkdir(f'./previas/{modulo['pasta']}') if not path.exists(f'./previas/{modulo['pasta']}') else True
+        mkdir(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}') if not path.exists(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}') else True
         print(f'./{modulo['pasta']}/{newImage}')
-        copyImage(f'./captura.png', f'./previas/{modulo['pasta']}/{modulo['imagem']}.png')
+        copyImage(f'./captura.png', f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}/{modulo['imagem']}.png')
 
     except Exception as err:
         print(f'Erro ao copiar a nova imagem: {err}')
@@ -101,14 +102,14 @@ def captura_imagem_naoexistente(inicio, fim):
     captura.save('captura.png')
     cap = cv2.imread('./captura.png')
 
-def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
+def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)): #TODO MUDAR DE PREVIAS PARA O NOME DA MAQUINA | TESTAR
 
     # Se nao existir a pasta, cria a pasta e salva a imagem
-    if not path.exists(f'./previas/{modulo['pasta']}'):
-        mkdir(f'./previas/{modulo['pasta']}')
+    if not path.exists(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}'):
+        mkdir(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}')
     
-    if not path.exists(f'./previas/{modulo['pasta']}/{modulo['imagem']}.png'):
-        captura_imagem_naoexistente(modulo['inicio'], modulo['fim']);
+    if not path.exists(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}/{modulo['imagem']}.png'):
+        captura_imagem_naoexistente(modulo['inicio'], modulo['fim'])
         substitui_imagem(modulo)
         return False
     
