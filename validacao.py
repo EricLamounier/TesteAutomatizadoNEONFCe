@@ -9,6 +9,7 @@ from os import mkdir, path
 from tkinter import messagebox
 from shutil import copy as copyImage
 import dados
+from lib import *
 
 def nao_existe_registro(texto):
     hotkey('shift', 'backspace')  # Limpa o campo
@@ -59,19 +60,15 @@ def valida_grid(registro, validacao, *data):
 
     except IndexError:
         adicionar_log(f'ERRO - Validacao: {(validacao)}')
-        adicionar_log(f'ERRO - Esperado : {str(validacao)}')
-        #messagebox.showerror("Erro!", "Esperado - '" + str(validacao) + "'")
+        adicionar_log(f'ERRO - Esperado : {str(validacao)}\n')
         return True
     
     print(f'validacao = {(validacao)}')
-    print(f'capturado = {(aux)}')
+    print(f'capturado = {(aux)}\n')
     adicionar_log(f'Validacao = {(validacao)}')
-    adicionar_log(f'Capturado = {(aux)}')
+    adicionar_log(f'Capturado = {(aux)}\n')
 
     chk = aux == validacao
-
-    #if not chk: # Diferentes
-        #messagebox.showerror("Erro!", "Esperado - '" + str(validacao) + "'")
     
     return not chk
         
@@ -87,8 +84,8 @@ def substitui_imagem(modulo): #TODO MUDAR DE PREVIAS PARA O NOME DA MAQUINA | TE
         messagebox.showerror('Erro ao copiar a nova imagem', err)
 
 def captura_imagem_naoexistente(inicio, fim):
-    top, left = map(int, inicio.split("x"))
-    bottom, right = map(int, fim.split("x"))
+    top, left = calcular_xy(inicio)
+    bottom, right = calcular_xy(fim)
 
     width = right - left
     height = bottom - top
@@ -116,7 +113,7 @@ def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)): #TODO MUDAR D
     check = captura_imagem(modulo['inicio'], modulo['fim'], modulo['pasta'], modulo['imagem'], coordenada_a_ignorar)
 
     # Se existir a pasta mas nao a imagem salva a imagem
-    if modulo['pasta'] == 'campos':
+    if modulo['pasta'] == 'campos': # TODO REMOVER QUANDO MUDAR AS VALIDACOES PARA TEXTO
         return not check  # Iguais
     else:
         if check:  # Iguais
@@ -126,13 +123,13 @@ def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)): #TODO MUDAR D
     adicionar_log(f'ERRO - Imagem {modulo['pasta']}\\{modulo['imagem']} não confere!')
     res = messagebox.askyesno('As imagens não conferem', 'Deseja salvar a nova imagem e continuar a execução do teste?')
     
-    sleep(1)
-    click(960, 528) # clica no centro da tela
+    sleep(0.5)
     
     if res:
         substitui_imagem(modulo)
+        clicaCentro() # clica no centro da tela
         return False
-
+    
     return True
 
 def adicionar_log(texto):
@@ -170,4 +167,22 @@ def valida_visualizacao_xml(tag, valorTag): # <uTrib> {UN e CX } <cEAN> {SEM GTI
 
     if tag is not None: # Encontrou
         if tag.text != valorTag: return True
+    return False
+
+def verifica_estoque_alterado(venda):
+    maximizar_janela(1)
+    sleep(4)
+    entra_na_tela('sp001') # Tela Produtos
+    sleep(0.3)
+    press('insert') # Sai do filtro
+    sleep(0.5)
+
+    for prod in venda['produtos']:
+        hotkey('shift', 'backspace')
+        if valida_grid(prod['produto'], prod['validacao'], 18): 
+            messagebox.showerror('Erro - Estoque Porduto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
+            return True
+
+    press('esc')
+
     return False

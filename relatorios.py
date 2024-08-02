@@ -1,4 +1,5 @@
 from lib import *
+from validacao import *
 
 def busca_no_relatorio(content):
     hotkey('ctrl', 'f')
@@ -9,19 +10,20 @@ def busca_no_relatorio(content):
 
 def cola_nota(content):
     copy(content)
-    rightClick(1854, 81)
+    clicaEsquerdoDuplo(1854, 81)
     sleep(0.5)
-    click(1854, 168)
+    clicaEsquerdo(1854, 168)
 
 def comprovante_aprazo(relatorio):
     hotkey('ctrl', 'f')
     sleep(0.5)
-    click(1824, 227)
+    clicaEsquerdo(1824, 227)
     sleep(0.3)
 
+    # TODO MUDAR PARA VERIFICAR A MENSAGEM
     modulo = {
         'pasta': 'campos',
-        'imagem': 'textonaoencontradopdv',
+        'imagem': relatorio['validacaoMensagem'], #asdasd
         'inicio': '884x460',
         'fim': '1035x579'
     }
@@ -60,7 +62,7 @@ def comprovante_aprazo(relatorio):
     if not imagens_diferentes(modulo): 
         messagebox.showerror('Erro TOTAL', 'Erro ao procurar o TOTAL - ' + relatorio['total'])
         return True
-    click(1824, 227)
+    clicaEsquerdo(1824, 227)
     sleep(0.25)
 
     # Pula
@@ -70,7 +72,7 @@ def comprovante_aprazo(relatorio):
     sleep(0.25)
 
     # Valor Líquido
-    click(1870, 322)
+    clicaEsquerdo(1870, 322)
     busca_no_relatorio(relatorio['liquido'])
     if not imagens_diferentes(modulo): 
         messagebox.showerror('Erro VALOR LÍQUIDO', 'Erro ao procurar o VALOR LÍQUIDO - ' + relatorio['liquido'])
@@ -122,6 +124,7 @@ def comprovante_aprazo(relatorio):
         return True
 
 def notas(nota):
+    # TODO MUDAR PARA VERIFICAR A MENSAGEM
     modulo = {
         'pasta': 'campos',
         'imagem': 'textonaoencontradopdv',
@@ -133,7 +136,7 @@ def notas(nota):
     hotkey('ctrl', 'f')
     write(nota['cpf'])
     sleep(0.5)
-    click(1868, 218)
+    clicaEsquerdo(1868, 218)
     sleep(0.8)
     if not imagens_diferentes(modulo): 
         messagebox.showerror('Erro CPF', 'Erro ao procurar o CPF - ' + nota['cpf'])
@@ -146,7 +149,7 @@ def notas(nota):
     hotkey('ctrl', 'f')
     write(nota['data'])
     sleep(0.5)
-    click(1868, 218)
+    clicaEsquerdo(1868, 218)
     sleep(0.8)
     if not imagens_diferentes(modulo): 
         messagebox.showerror('Erro DATA', 'Erro ao procurar a DATA - ' + nota['data'])
@@ -158,7 +161,7 @@ def notas(nota):
     hotkey('ctrl', 'f')
     write(nota['rodape'])
     sleep(0.5)
-    click(1868, 218)
+    clicaEsquerdo(1868, 218)
     sleep(0.8)
     if not imagens_diferentes(modulo): 
         messagebox.showerror('Erro ' + nota['rodape'], 'Erro ao procurar - ' + nota['rodape'])
@@ -170,7 +173,7 @@ def notas(nota):
     hotkey('ctrl', 'f')
     keyboard.write(nota['operador'])
     sleep(0.5)
-    click(1868, 218)
+    clicaEsquerdo(1868, 218)
     sleep(0.8)
     if not imagens_diferentes(modulo): 
         messagebox.showerror('Erro OPERADOR', 'Erro ao procurar o OPERADOR - ' + nota['OPERADOR'])

@@ -380,7 +380,7 @@ davRapido2 = {
          'validacao':   ['#produto2', '2', '1000000000023', '15,37', '20,00', '117,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '117,000', '15,37', 'UN', '12', 'T', 'T', '1001.19.00', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '0,00', '0,00', '5.102', '0,000', '0,000', '0,00', '0,00', '30,12', '-100,00', '012345678912', 'CX', '5,00', '0,00', '0,00', '0,00', '', '0,00', ''],
         },
     ],
-    'comprovante': { # TODO TIRAR O PRINT DE NOVO POIS ESTA ERRADO O CLIENTE
+    'comprovante': {
         'cnpj': '04.248.801/0001-21',
         'cliente': 'Cliente: 4 - #pessoa5',
         'cpf': '341.010.576-05',
@@ -394,7 +394,7 @@ davRapido2 = {
         'data': '', # Data atual
         'operador': '#usuário1'
     },
-    'nota': { # TODO TIRAR PRINT DE NOVO POIS ESTA ERRADO O CLIENTE
+    'nota': {
         'cnpj': '04.248.801/0001-21',
         'cpf': '48.149.882/0001-88',
         'data': '',
@@ -473,7 +473,10 @@ vendaAvulsa2 = {
         'vencimento2': '', # Data atual + 2 meses
         'liquido': '500',
         'data': '', # Data atual
-        'operador': '#usuário1'
+        'operador': '#usuário1',
+        'validacaoMensagem': {
+        1:['\nNeopdv', '\n---------------------------', '\nTexto não encontrado ', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n', '\n'],
+    }
     },
     'nota': {
         'cnpj': '',

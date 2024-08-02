@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 from pyautogui import screenshot, size
-import dados
+from dados import banco
+from lib import calcular_xy
 
 def merge_overlapping_rectangles(rectangles, padding):
     merged_rectangles = []
@@ -105,7 +106,7 @@ def highlight_differences(previa, capturada, resultado):
 
         resultado[y:y+h, x:x+w, 2] = resultado[y:y+h, x:x+w, 2] * (1 - transparency) + 255 * transparency
 
-def calcular_xy(coordenada):
+def calculate_xy(coordenada):
         screen_width, screen_height = size()
         x, y = map(int, coordenada.split("x"))
         x = (screen_width / 2) + (x - 960)
@@ -114,8 +115,8 @@ def calcular_xy(coordenada):
         
 def captura_imagem(inicio, fim, modulo, imagem, coordenadas_a_ignorar):
      
-    top, left = calcular_xy(top, left)
-    bottom, right = calcular_xy(bottom, right)
+    top, left = calcular_xy(inicio)
+    bottom, right = calcular_xy(fim)
 
     width = right - left
     height = bottom - top
@@ -130,7 +131,6 @@ def captura_imagem(inicio, fim, modulo, imagem, coordenadas_a_ignorar):
     captura.save('captura.png')
     cap = cv2.imread('./captura.png')
     
-    #imagem_previa = cv2.imread('./Previas/' + modulo + '/' + imagem + '.png') # TODO REMOVER
-    imagem_previa = cv2.imread(f"./Imagens/{dados.banco['nome_maquina']}/{modulo}/{imagem}.png") # TODO TESTAR
+    imagem_previa = cv2.imread(f"./Imagens/{banco['nome_maquina']}/{modulo}/{imagem}.png")
 
     return show_errors(imagem_previa, cap, modulo, coordenadas_a_ignorar)

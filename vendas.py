@@ -1,73 +1,6 @@
 from lib import *
 from relatorios import *
-
-def venda_avulsa_configurar_visualizar(void=''):
-    maximizar_janela(0)
-    click(613, 333) # Informe o produto
-    sleep(0.2)
-    
-    press('f5') # Campo quantidade
-    write('1') # Quantidade
-    press('enter')
-    write('1000000000016') # Produto 1
-    press('enter')
-
-    sleep(1)
-    press('f9') # Finalizar Venda
-    sleep(1)
-
-    write('1') # Finalizadora Dinheiro
-    press('enter')
-    sleep(0.7)
-    press(['tab', 'tab', 'tab']) # Campos visualizar
-
-    xTop, yTop, xBottom, yBottom = 653, 612, 665, 624
-    modulo = {
-        'pasta': 'campos',
-        'imagem': 'checked',
-        'inicio': f'{xTop}x{yTop}',
-        'fim': f'{xBottom}x{yBottom}'
-    }
-
-    sleep(0.4)
-    if imagens_diferentes(modulo): #Marca
-        press('space')
-    press('tab')
-
-    xTop, yTop, xBottom, yBottom = 757, 612, 769, 624
-    modulo['inicio'] = f'{xTop}x{yTop}'
-    modulo['fim'] = f'{xBottom}x{yBottom}'
-
-    sleep(0.4)
-    if imagens_diferentes(modulo): #Marca
-        press('space')
-    press('tab')
-
-    xTop, yTop, xBottom, yBottom = 851, 612, 863, 624
-    modulo['inicio'] = f'{xTop}x{yTop}'
-    modulo['fim'] = f'{xBottom}x{yBottom}'
-
-    sleep(0.4)
-    if imagens_diferentes(modulo): #Marca
-        press('space')
-
-    press(['tab', 'tab', 'tab']) # Salvar
-    sleep(0.2)
-    press('enter') # Salvar
-    sleep(10) # Abre a nota
-
-    modulo = {
-        'pasta': 'notas',
-        'imagem': 'pdvavulso1',
-        'inicio': '810x58',
-        'fim': '1086x330'
-    }
-
-    chk = imagens_diferentes(modulo)
-    sleep(0.5)
-
-    press('esc')
-    return chk
+from validacao import *
 
 def dav_crediario(venda):
     press(['enter', 'enter', 'enter']) # Gera parcelas
@@ -87,10 +20,10 @@ def dav_crediario(venda):
 
 def dav_avista(venda):
     # Na tela Baixa CR NOVA FUNCAO TODO
-    click(867, 301) # Conta Mov
+    clicaEsquerdo(867, 301) # Conta Mov
     write('1')
     sleep(0.5)
-    click(499, 840) # Salvar
+    clicaEsquerdo(499, 840) # Salvar
     sleep(2)
     press('esc') # Sai do CR
 
@@ -115,7 +48,7 @@ def dav(venda):
     write(venda['cliente'])
     press('enter')
     sleep(0.5)
-    doubleClick(1028, 262) # Mensagem que aparece
+    doubleclicaEsquerdo(1028, 262) # Mensagem que aparece
     press('enter')
     write(venda['funcionario'])
     press('enter')
@@ -136,7 +69,7 @@ def dav(venda):
     # Valida o grid da venda
     if valida_grid('', venda['validacaoVenda'], -1): return True
     sleep(0.5)
-    click(495, 851) # Estoque
+    clicaEsquerdo(495, 851) # Estoque
     sleep(1)
     press('enter') # Financeiro
     sleep(3)
@@ -161,8 +94,8 @@ def dav(venda):
         modulo = {
             'pasta': 'notas',
             'imagem': 'dav1',
-            'inicio': '810x58',
-            'fim': '1086x340'
+            'inicio': '805x53',
+            'fim': '1091x345'
         }
 
         sleep(0.5)
@@ -224,8 +157,8 @@ def dav_rapido(venda):
     modulo = {
         'pasta': 'davrapido',
         'imagem': venda['tela1'],
-        'inicio': '1433x175',
-        'fim': '1913x917'
+        'inicio': '1428x170',
+        'fim': '1918x922'
     }
 
     sleep(0.6)
@@ -247,8 +180,8 @@ def dav_rapido(venda):
     modulo = {
         'pasta': 'davrapido',
         'imagem': venda['tela2'],
-        'inicio': '655x274',
-        'fim': '1258x745'
+        'inicio': '650x269',
+        'fim': '1263x750'
     }
     
     sleep(0.8)
@@ -268,8 +201,8 @@ def dav_rapido(venda):
         modulo = {
             'pasta': 'davrapido',
             'imagem': venda['tela3'],
-            'inicio': '876x483',
-            'fim': '1313x516'
+            'inicio': '871x478',
+            'fim': '1318x521'
         }
 
         sleep(1)
@@ -285,9 +218,9 @@ def dav_rapido(venda):
         sleep(6)
         modulo = {
                 'pasta': 'notas',
-                'imagem': venda['dav'],
-                'inicio': '810x58',
-                'fim': '1086x330'
+                'imagem': venda['dav'], #davrapido1
+                'inicio': '805x53',
+                'fim': '1091x335'
         }
 
         if imagens_diferentes(modulo): return True
@@ -299,11 +232,11 @@ def dav_rapido(venda):
         minimizar_janela('Neo NFC-e')
         sleep(0.6)
     else:
-        click(812, 782) # Salvar DAV Rapido
+        clicaEsquerdo(812, 782) # Salvar DAV Rapido
         sleep(0.3)
         press('esc')
 
-    click(905, 15)
+    clicaEsquerdo(905, 15)
     sleep(0.5)
     press('esc')
     sleep(0.5)
@@ -340,7 +273,7 @@ def importar_para_nfce(venda, tipo=0):
     hotkey('ctrl', 'r') if tipo else hotkey('ctrl', 'd')
     sleep(1.8)
 
-    click(1055, 550)if tipo else click(1179, 642) # Filtra TODOS
+    clicaEsquerdo(1055, 550)if tipo else clicaEsquerdo(1179, 642) # Filtra TODOS
     sleep(0.3)
     press('insert') # Sai do filtro
     sleep(0.5)
@@ -351,8 +284,8 @@ def importar_para_nfce(venda, tipo=0):
     modulo = {
         'pasta': 'notas',
         'imagem': 'dav2',
-        'inicio': '810x58',
-        'fim': '1086x370'
+        'inicio': '805x53',
+        'fim': '1091x375'
     }
 
     if tipo: # DAV RAPIDO
@@ -365,7 +298,7 @@ def importar_para_nfce(venda, tipo=0):
 def venda_nfce_1(venda):
     maximizar_janela(0)
     sleep(0.6)
-    click(613, 333) # Informe o produto
+    clicaEsquerdo(613, 333) # Informe o produto
     sleep(0.2)
     for prod in venda['produtos']:
         press('f5') # Campo quantidade
@@ -399,15 +332,15 @@ def venda_nfce_1(venda):
     modulo = {
         'pasta': 'pdv',
         'imagem': 'pdv1_tela2',
-        'inicio': '641x310',
-        'fim': '1283x724'
+        'inicio': '636x305',
+        'fim': '1288x729'
     }
 
     sleep(0.6)
     if imagens_diferentes(modulo): return True
 
     press('enter') # Salvar
-    click(953, 554)
+    clicaEsquerdo(953, 554)
     sleep(0.3)
     press('enter')
     sleep(7.5)
@@ -415,8 +348,8 @@ def venda_nfce_1(venda):
     modulo = {
         'pasta': 'notas',
         'imagem': 'pdv1',
-        'inicio': '810x58',
-        'fim': '1086x400'
+        'inicio': '805x53',
+        'fim': '1091x405'
     }
 
     if imagens_diferentes(modulo): return True
@@ -429,7 +362,7 @@ def venda_nfce_1(venda):
 def venda_nfce_2(venda):
     maximizar_janela(0)
     sleep(0.6)
-    click(613, 333) # Informe o produto
+    clicaEsquerdo(613, 333) # Informe o produto
     sleep(0.2)
     for prod in venda['produtos']:
         press('f5') # Campo quantidade
@@ -463,15 +396,15 @@ def venda_nfce_2(venda):
     modulo = {
         'pasta': 'pdv',
         'imagem': 'pdv2_tela2',
-        'inicio': '641x310',
-        'fim': '1283x724'
+        'inicio': '636x305',
+        'fim': '1288x729'
     }
 
     sleep(0.6)
     if imagens_diferentes(modulo): return True
 
     press('enter') # Salvar
-    click(953, 554)
+    clicaEsquerdo(953, 554)
     sleep(1)
 
     hotkey('ctrl', 'f6')
@@ -490,8 +423,8 @@ def venda_nfce_2(venda):
     modulo = {
         'pasta': 'pdv',
         'imagem': 'financeiro_pdv2',
-        'inicio': '879x482',
-        'fim': '1313x518'
+        'inicio': '874x477',
+        'fim': '1318x522'
     }
 
     #if imagens_diferentes(modulo): return True # Erro ao gerar financeiro VALIDAR GERAR PARCELA DESATIVADO
@@ -505,8 +438,8 @@ def venda_nfce_2(venda):
     modulo = {
         'pasta': 'notas',
         'imagem': 'pdv2',
-        'inicio': '810x58',
-        'fim': '1086x350'
+        'inicio': '805x53',
+        'fim': '1091x355'
     }
 
     sleep(7.5)    
@@ -541,7 +474,7 @@ def venda_nfce_3(venda):
     press('enter') # Ativar
     sleep(0.5)
 
-    click(613, 333) # Informe o produto
+    clicaEsquerdo(613, 333) # Informe o produto
     sleep(0.2)
     for prod in venda['produtos']:
         press('f5') # Campo quantidade
@@ -595,8 +528,8 @@ def venda_nfce_3(venda):
     modulo = {
         'pasta': 'terminal',
         'imagem': 'telaDesconto',
-        'inicio': '748x259',
-        'fim': '1172x715'
+        'inicio': '743x254',
+        'fim': '1177x720'
     }
 
     sleep(0.6)
@@ -609,14 +542,14 @@ def venda_nfce_3(venda):
     modulo = {
         'pasta': 'pdv',
         'imagem': 'pdv3_tela2',
-        'inicio': '641x310',
-        'fim': '1283x724'
+        'inicio': '636x305',
+        'fim': '1288x729'
     }
 
     sleep(0.8)
     if imagens_diferentes(modulo): return True #
     press('enter')
-    click(953, 554)
+    clicaEsquerdo(953, 554)
     sleep(1)
 
     hotkey('ctrl', 'f6')
@@ -633,8 +566,8 @@ def venda_nfce_3(venda):
     modulo = {
         'pasta': 'terminal',
         'imagem': 'semPermissao',
-        'inicio': '786x584',
-        'fim': '1100x628'
+        'inicio': '781x579',
+        'fim': '1105x633'
     }
 
     sleep(0.6)
@@ -656,7 +589,7 @@ def venda_nfce_3(venda):
     press('insert')
     sleep(0.6)
 
-    click(814, 563)
+    clicaEsquerdo(814, 563)
     sleep(0.6)
     press('enter')
     moveTo(957, 217)
@@ -664,20 +597,20 @@ def venda_nfce_3(venda):
     modulo = {
         'pasta': 'pdv',
         'imagem': 'pdv3_tela3',
-        'inicio': '641x310',
-        'fim': '1283x724'
+        'inicio': '636x305',
+        'fim': '1288x729'
     }
 
     sleep(0.8)
     if imagens_diferentes(modulo): return True # Erro na tela Desconto
     press('enter')
-    click(953, 554)
+    clicaEsquerdo(953, 554)
 
     modulo = {
         'pasta': 'notas',
         'imagem': 'pdv3',
-        'inicio': '810x58',
-        'fim': '1086x400'
+        'inicio': '805x53',
+        'fim': '1091x405'
     }
 
     sleep(6.5)    

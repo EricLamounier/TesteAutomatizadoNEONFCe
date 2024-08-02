@@ -1,5 +1,6 @@
 from lib import *
 from dados import *
+from validacao import *
 
 def cadastro_produto_padrao(produto):
     sleep(0.3)
@@ -186,7 +187,7 @@ def cadastro_unidade_tributavel(unidadeTributavel):
     hotkey('ctrl', 'tab') # Complementar
     sleep(1)
 
-    click(1099, 334) # Unidade Tributavel
+    clicaEsquerdo(1099, 334) # Unidade Tributavel
     sleep(0.5)
     write('0')
     sleep(0.3)
