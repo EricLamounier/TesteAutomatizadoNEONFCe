@@ -1,6 +1,6 @@
 from os.path import join, dirname, exists
 from shutil import copytree
-from os import mkdir
+from os import mkdir, walk, remove
 from tkinter import Tk, Text, Listbox, messagebox, DISABLED, NORMAL, END, SINGLE
 from pyautogui import click, size, hotkey
 from threading import Thread
@@ -49,6 +49,25 @@ def limpa():
     barra_lateral.delete('1.0', END)
     barra_lateral.config(state=DISABLED)
     current_line = 1
+
+def apagaImagens():
+    root_dir = f'./Imagens/{dados.banco['nome_maquina']}'
+    # Percorre todas as subpastas e arquivos a partir do diretório raiz
+    res = messagebox.askyesno('Apagar Imagens', f'Tem certeza que deseja apagar todas as prévias de:\n{root_dir} ?')
+    if not res: return
+
+    print(f"Apagando imagens de {root_dir}")
+    for subdir, _, files in walk(root_dir):
+        for file in files:
+            # Verifica se o arquivo tem extensão .png
+            if file.lower().endswith('.png'):
+                file_path = path.join(subdir, file)
+                try:
+                    remove(file_path)
+                except Exception as e:
+                    print(f'Erro ao apagar {file_path}: {e}')
+    print("- Finalizado.\n")
+    messagebox.showinfo("Sucesso", "Imagens apagadas com sucesso!")
 
 def obter_endereco_ip():
     try:
@@ -138,7 +157,7 @@ def inativar_produtos():
 
 def step(val):
     num = len(etapas) # %
-    porcent = floor((val*100)/num)
+    porcent = round((val*100)/num, 2)
     progressbar['value'] = porcent
     porcentagem['text'] = str(porcent) + '%'
 
@@ -178,13 +197,16 @@ if __name__ == "__main__":
     lateralBox = ttk.Frame(tela)
     lateralBox.grid(column=2, pady=(5,0))
 
-    limpar = ttk.Button(lateralBox, text="Limpar", command=limpa)
-    limpar.grid(column=0, row=0)
+    #limpar = ttk.Button(lateralBox, text="Limpar", command=limpa)
+    #limpar.grid(column=0, row=0)
+
+    apagarImagens = ttk.Button(lateralBox, text="Apagar Imagens", command=apagaImagens)
+    apagarImagens.grid(column=0, row=0)
 
     inativarBttn = ttk.Button(lateralBox, text="Forçar Fechar (DEL)", command=forcarFechar)
     inativarBttn.grid(column=1, row=0)
 
-    parar = ttk.Button(lateralBox, text="Parar Execução (ALT)", command=pararExecucao)
+    parar = ttk.Button(lateralBox, text="Parar (ALT)", command=pararExecucao)
     parar.grid(column=2, row=0)
 
     box_neo = ttk.LabelFrame(tela, text="Início", padding=10)
