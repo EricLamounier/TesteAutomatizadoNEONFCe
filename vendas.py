@@ -9,7 +9,7 @@ def dav_crediario(venda):
     venda['validacaoFinanceiro'][1] = obter_data(1) 
     venda['validacaoFinanceiro'][7] = obter_data(2)
     sleep(1)
-    if valida_grid('', venda['validacaoFinanceiro'], -1): 
+    if valida_grid_NOVO('', 'centroDireito', venda['validacaoFinanceiro']): 
         messagebox.showerror('Erro - DAV', 'Esperado: ' + str(venda['validacaoFinanceiro']))
         return True
 
@@ -48,7 +48,7 @@ def dav(venda):
     write(venda['cliente'])
     press('enter')
     sleep(0.5)
-    doubleclicaEsquerdo(1028, 262) # Mensagem que aparece
+    clicaEsquerdoDuplo(1028, 262) # Mensagem que aparece
     press('enter')
     write(venda['funcionario'])
     press('enter')
@@ -67,7 +67,7 @@ def dav(venda):
 
     sleep(0.5)
     # Valida o grid da venda
-    if valida_grid('', venda['validacaoVenda'], -1): return True
+    if valida_grid_NOVO('', 'centroDireito', venda['validacaoVenda']): return True
     sleep(0.5)
     clicaEsquerdo(495, 851) # Estoque
     sleep(1)
@@ -77,12 +77,14 @@ def dav(venda):
     dav_crediario(venda) if venda['pagamento'] == '2' else dav_avista(venda)
     sleep(1)
 
+    copy('')
     hotkey('ctrl', 'f6')
-    sleep(0.2)
+    sleep(0.3)
     press('esc')
     sleep(0.5)
     rastro = paste()
     if rastro != 'SV001 - SV002': return True # Erro ao gerar as parcelas e sair ( Tela de Incluir DAV)
+    sleep(0.5)
     
     if venda['pagamento'] == '2':
         for _ in range(4): press('tab')
@@ -102,13 +104,13 @@ def dav(venda):
         if imagens_diferentes(modulo): return True
 
         sleep(1)
-        if notas(venda['nota']): return True
+        if notas(venda): return True
         sleep(0.5)
         maximizar_janela(1)
 
     sleep(0.5)
     press('esc')
-    sleep(0.2)
+    sleep(0.5)
     press('esc')
     
     if venda['pagamento'] == '2': sleep(2) 
@@ -122,10 +124,11 @@ def dav(venda):
     press('insert') # Sai do filtro
     sleep(0.5)
 
-    if valida_grid('', venda['produtos'][0]['validacao'], 18): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
+    if valida_grid_NOVO('', 'centroDireito', venda['produtos'][0]['validacao'], [18]): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
     press('esc')
     sleep(0.5)
     #return chk # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
+    return False
 
 def dav_rapido(venda):
     sleep(1)
@@ -212,7 +215,7 @@ def dav_rapido(venda):
         press('enter') # Salvar
         sleep(4)
         
-        if comprovante_aprazo(venda['comprovante']): return True
+        if comprovante_aprazo(venda): return True
         sleep(0.5)
         press('esc') # Nota
         sleep(6)
@@ -226,7 +229,7 @@ def dav_rapido(venda):
         if imagens_diferentes(modulo): return True
         sleep(1)
 
-        if notas(venda['nota']): return True
+        if notas(venda): return True
         sleep(0.5)
 
         minimizar_janela('Neo NFC-e')
@@ -253,10 +256,10 @@ def dav_rapido(venda):
     """ CASO TENHA MAIS DE UM PRODUTO NA VENDA, DESCOMENTE AQUI
     for prod in venda['produtos']:
         hotkey('shift', 'backspace')
-        if valida_grid(prod['produto'], prod['validacao'], 18): return True
+        if valida_grid(prod['produto'], 'centroDireito', prod['validacao'], 18): return True
     """
 
-    if valida_grid('', venda['produtos'][0]['validacao'], 18): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
+    if valida_grid_NOVO('', 'centroDireito', venda['produtos'][0]['validacao'], [18]): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
 
     press('esc') # Sai da tela
     sleep(0.2)
@@ -293,7 +296,7 @@ def importar_para_nfce(venda, tipo=0):
 
     if imagens_diferentes(modulo): return True
     sleep(0.4)
-    if notas(venda['nota']): return True
+    if notas(venda): return True
 
 def venda_nfce_1(venda):
     maximizar_janela(0)
@@ -431,7 +434,7 @@ def venda_nfce_2(venda):
     press('insert') # Salva
 
     sleep(3)
-    if comprovante_aprazo(venda['comprovante']): return True
+    if comprovante_aprazo(venda): return True
     sleep(0.7)
     press('esc')
 
@@ -445,7 +448,7 @@ def venda_nfce_2(venda):
     sleep(7.5)    
     if imagens_diferentes(modulo): return True
 
-    if notas(venda['nota']): return True
+    if notas(venda): return True
     
     sleep(3)
     chk = verifica_estoque_alterado(venda)

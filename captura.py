@@ -35,7 +35,7 @@ def merge(rect1, rect2):
     h = max(rect1[1] + rect1[3], rect2[1] + rect2[3]) - y
     return x, y, w, h
 
-def show_errors(previa, captura, modulo, coordenadas_a_ignorar=(0, 0, 0, 0)):
+def show_errors_OLD_FUNCIONANDO_BACKUP(previa, captura, modulo, coordenadas_a_ignorar=(0, 0, 0, 0)):
     h, w, _ = previa.shape
 
     nova_largura = w * 2 + 10
@@ -75,6 +75,53 @@ def show_errors(previa, captura, modulo, coordenadas_a_ignorar=(0, 0, 0, 0)):
     if diff_media > tolerancia_erro:
         return False # Diferente
     return True # Iguais
+
+def show_errors(previa, captura, modulo, coordenadas_a_ignorar=(0, 0, 0, 0)):
+    h, w, _ = previa.shape
+
+    # Criação da imagem de comparação
+    nova_largura = w * 2 + 10
+    nova_imagem = np.zeros((h + 30, nova_largura, 3), dtype=np.uint8)
+
+    fonte = cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(nova_imagem, 'Esperado', (10, h + 25), fonte, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+    cv2.putText(nova_imagem, 'Capturado', (w + 20, h + 25), fonte, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+    
+    mascara_ignorar = np.zeros((h, w), dtype=np.uint8)
+    mascara_ignorar[coordenadas_a_ignorar[1]:coordenadas_a_ignorar[3], coordenadas_a_ignorar[0]:coordenadas_a_ignorar[2]] = 255
+
+    # Verifica se as imagens têm o mesmo tamanho; se não, exibe uma mensagem de erro e redimensiona a captura
+    if previa.shape != captura.shape:
+        print("As imagens não têm o mesmo tamanho. Redimensionando a imagem capturada...")
+        captura = cv2.resize(captura, (previa.shape[1], previa.shape[0]))  # Redimensiona para o tamanho da 'previa'
+
+    nova_previa = cv2.bitwise_and(previa, previa, mask=~mascara_ignorar)
+    nova_captura = cv2.bitwise_and(captura, captura, mask=~mascara_ignorar)
+    diff_media = np.mean(np.abs(nova_captura - nova_previa))
+    tolerancia_erro = 0  # Ajuste o valor da tolerância conforme necessário
+
+    print(f'{modulo} - {round(diff_media, 4)} de erro | max = {tolerancia_erro}\n')
+    if modulo == 'assinatura':
+        if diff_media < tolerancia_erro:  # Menor que a tolerância
+            return True
+    
+    if diff_media > tolerancia_erro and modulo.lower() != 'campos':  # Se for DIFERENTE e o modulo das imgs não for 'campos' 
+        highlight_differences(previa, captura, nova_captura)
+        nova_imagem[:h, :w, :] = nova_previa
+        nova_imagem[:h, w + 10:w * 2 + 10, :] = nova_captura
+        
+        cv2.namedWindow('Imagens diferentes!', cv2.WINDOW_NORMAL)
+        cv2.resizeWindow('Imagens diferentes!', nova_imagem.shape[1], nova_imagem.shape[0])
+
+        cv2.setWindowProperty('Imagens diferentes!', cv2.WND_PROP_TOPMOST, 1)
+        
+        cv2.imshow('Imagens diferentes!', nova_imagem)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+    
+    if diff_media > tolerancia_erro:
+        return False  # Diferente
+    return True  # Iguais
 
 def highlight_differences(previa, capturada, resultado):
     if previa is None or capturada is None or previa.shape != capturada.shape:

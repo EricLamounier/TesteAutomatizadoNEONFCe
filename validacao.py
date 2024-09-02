@@ -25,16 +25,16 @@ def nao_existe_registro(texto):
 
     return check == ''  
 
-def valida_grid(registro, validacao, *data):
+def valida_grid(registroAValidar, validacao, *data):
 
     sleep(0.3)
-    if registro != '':
+    if registroAValidar != '':
         press('f12')
         sleep(0.5)
-        keyboard.write(registro) # Procura pelo registro
+        keyboard.write(registroAValidar) # Procura pelo registroAValidar
         sleep(0.6)
 
-    if registro != 'empty':
+    if registroAValidar != 'empty':
         largura, altura = size()
         coordenadas_centro = (largura // 2, altura // 2)
         coords =  coordenadas_centro
@@ -67,6 +67,60 @@ def valida_grid(registro, validacao, *data):
     print(f'capturado = {(aux)}\n')
     adicionar_log(f'Validacao = {(validacao)}')
     adicionar_log(f'Capturado = {(aux)}\n')
+
+    chk = aux == validacao
+    
+    return not chk
+
+def valida_grid_NOVO(registroAValidar, coordenadaAClicar, validacao, posicaoARemover=''):
+    copy('')
+    if registroAValidar != '':
+        press('f12')
+        sleep(0.5)
+        keyboard.write(registroAValidar) # Procura pelo registroAValidar
+        sleep(0.6)
+
+    if type(coordenadaAClicar) == list: # Eh uma coordenadaAClicar
+        clicaEsquerdo(coordenadaAClicar[0], coordenadaAClicar[1])
+    elif coordenadaAClicar == 'centroDireito': # Copiar tuudo
+        largura, altura = size()
+        coordenadas_centro = (largura // 2, altura // 2)
+        coords =  coordenadas_centro
+        clicaDireito(coords[0], coords[1]) # Clica no centro
+    else: # Eh uma string Clica Centro
+        largura, altura = size()
+        coordenadas_centro = (largura // 2, altura // 2)
+        coords =  coordenadas_centro
+        clicaEsquerdo(coords[0], coords[1]) # Clica no centro
+        hotkey('ctrl', 'c')
+
+    sleep(0.75)
+    press('t') # Copia tudo
+    sleep(0.4)
+
+    content = paste()
+    sleep(0.4)
+
+    try:
+        content = content.split('\r') # Divide entre labels e valores
+        content.pop(0) # Retira os labels
+
+        aux = []
+        for _ in content:
+            aux += _.split('\t')
+
+        if posicaoARemover != -1:
+            for indx in posicaoARemover: aux.pop(indx)
+
+    except IndexError:
+        adicionar_log(f'ERRO - Validacao: {(validacao)}')
+        adicionar_log(f'ERRO - Esperado : {str(validacao)}')
+        return True
+    
+    print(f'validacao = {(validacao)}')
+    print(f'capturado = {(aux)}')
+    adicionar_log(f'Validacao = {(validacao)}')
+    adicionar_log(f'Capturado = {(aux)}')
 
     chk = aux == validacao
     
@@ -179,7 +233,7 @@ def verifica_estoque_alterado(venda):
 
     for prod in venda['produtos']:
         hotkey('shift', 'backspace')
-        if valida_grid(prod['produto'], prod['validacao'], 18): 
+        if valida_grid_NOVO(prod['produto'], 'centroDireito', prod['validacao'], [18]): 
             messagebox.showerror('Erro - Estoque Porduto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
             return True
 
