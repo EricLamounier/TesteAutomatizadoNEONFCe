@@ -1,14 +1,16 @@
 from lib import *
+from validacao import *
 import ctypes
 import xml.etree.ElementTree as ET
 
 def parametros_gerais(arg=''):
     excluir_arquivo_acbr()
     sleep(5)
-    doubleClick(615, 272) # Principal
+    clicaEsquerdoDuplo(615, 272) # Principal
     sleep(0.5)
 
-    click(1068, 583) # Campo PFV/NFC-e
+    clicaEsquerdo(1068, 583) # Campo PFV/NFC-e
+    
     sleep(0.5)
     write('nao') # PFV/NFC-e
     sleep(0.2)
@@ -24,7 +26,7 @@ def parametros_gerais(arg=''):
 
     if imagens_diferentes(modulo): return True
 
-    doubleClick(615, 272)
+    clicaEsquerdoDuplo(615, 272)
     sleep(0.3)
     write('vend') # Vendas
     sleep(0.5)
@@ -66,8 +68,8 @@ def parametros_gerais(arg=''):
     modulo = {
         'pasta': 'parametrosgerais',
         'imagem': 'campocaixaautomatico',
-        'inicio': '740x316',
-        'fim': '849x349'
+        'inicio': '735x311',
+        'fim': '854x354'
     }
 
     if imagens_diferentes(modulo): return True
@@ -76,7 +78,7 @@ def parametros_gerais(arg=''):
         hotkey('shift', 'tab')
     sleep(0.3)
 
-    write('pd') # PDV/NFC-e
+    write('nf') # PDV/NFC-e # TODO: 2.53 PDV 2.54 NFCE
     sleep(0.5)
 
     press('enter')
@@ -122,8 +124,8 @@ def parametros_gerais(arg=''):
     modulo = {
         'pasta': 'parametrosgerais',
         'imagem': 'pdvnfce',
-        'inicio': '737x264',
-        'fim': '1340x571'
+        'inicio': '732x259',
+        'fim': '1345x576'
     }
 
     if imagens_diferentes(modulo): return True
@@ -148,7 +150,7 @@ def parametros_gerais(arg=''):
 def parametros_contabilizacao(arg=''):
     sleep(3)
 
-    doubleClick(611, 285) # Principal
+    clicaEsquerdoDuplo(611, 285) # Principal
     sleep(0.5)
 
     write('dav r') # DAV Rápido
@@ -168,8 +170,8 @@ def parametros_contabilizacao(arg=''):
     modulo = {
         'pasta': 'parametroscontabilizacao',
         'imagem': 'davrapido',
-        'inicio': '737x307',
-        'fim': '968x469'
+        'inicio': '732x302',
+        'fim': '973x475'
     }
 
     if imagens_diferentes(modulo): return True
@@ -207,7 +209,7 @@ def cadastro_operadora_cartao(operadora):
 
     press('insert') # Salvar
 
-    chk = valida_grid(operadora['operadora'], operadora['validacao'], -1)
+    chk = valida_grid_NOVO(operadora['operadora'], 'centroDireito', operadora['validacao'])
  
     if chk: messagebox.showerror('Erro - Operadora Cartão', 'Esperado: ' + str(operadora['validacao']))
 
@@ -307,7 +309,7 @@ def cadastro_finalizadora(finalizadora):
     press('insert')
     sleep(0.5)
 
-    chk = valida_grid(finalizadora['finalizadora'], finalizadora['validacao'], -1)
+    chk = valida_grid_NOVO(finalizadora['finalizadora'], 'centroDireito', finalizadora['validacao'])
     sleep(0.5)
 
     if chk: messagebox.showerror('Erro - Finalizadora', 'Esperado: ' + str(finalizadora['validacao']))
@@ -374,7 +376,7 @@ def cadastro_forma_pagamento(formaPagamento):
     sleep(0.7)
     press('enter')
     sleep(0.5)
-    doubleClick(611, 436)
+    clicaEsquerdoDuplo(611, 436)
     sleep(0.5)
     press(['enter', 'enter'])
     sleep(0.2)
@@ -382,7 +384,7 @@ def cadastro_forma_pagamento(formaPagamento):
     press('insert') # Salva
     sleep(0.6)
 
-    chk = valida_grid(formaPagamento['forma'], formaPagamento['validacao'], -1)
+    chk = valida_grid_NOVO(formaPagamento['forma'], 'centroDireito', formaPagamento['validacao'])
     sleep(0.2)
 
     if chk: messagebox.showerror('Erro - Forma Pagamento', 'Esperado: ' + str(formaPagamento['validacao']))
@@ -394,7 +396,7 @@ def cria_terminal(validacaoTerminal):
     abre_exe_pdv()
     sleep(2)
 
-    click(847, 477) # Login
+    clicaEsquerdo(847, 477) # Login
     sleep(0.05)
     hotkey('ctrl', 'a') # Seleciona tudo
     sleep(0.05)
@@ -402,7 +404,7 @@ def cria_terminal(validacaoTerminal):
     sleep(0.05)
     press(['enter', 'enter']) # Entra no NEO PDV
 
-    sleep(4) # TODO VERIFICAR AQUI SE FUNCIONOU!!!!
+    sleep(4)
     press('n') # Para pular pedido de atualizar nova versão caso apareça
 
     sleep(20) # Espera atualizar
@@ -413,15 +415,7 @@ def cria_terminal(validacaoTerminal):
     press('enter') # Salvar
     sleep(4.5)
 
-    """modulo = {
-        'pasta': 'terminal',
-        'imagem': 'terminalconfigurado',
-        'inicio': '858x492',
-        'fim': '1105x579'
-    }
-
-    if imagens_diferentes(modulo): return True # Terminal nao foi configurado"""
-    if valida_grid('', validacaoTerminal[1]): return True
+    if valida_grid_NOVO('', 'clicaEsquerdo', validacaoTerminal[1]): return True
 
     sleep(1)
     press('enter') # Configurado com sucesso OK
@@ -430,21 +424,10 @@ def cria_terminal(validacaoTerminal):
     press('s') # Sincronizar terminais
     sleep(35)
 
-    # Verifica se foi criado
-    """modulo = {
-        'pasta': 'terminal',
-        'imagem': 'sincronizado',
-        'inicio': '843x485',
-        'fim': '1077x582'
-    }
-    sleep(2)
-    if imagens_diferentes(modulo): return True # Terminal nao foi sincronizado
-    sleep(0.7)"""
-
-    if valida_grid('', validacaoTerminal[2]): return True
+    if valida_grid_NOVO('', 'clicaEsquerdo', validacaoTerminal[2]): return True
 
     press('enter') # O sistema precisa ser reiniciado "OK"
-    click(955, 560) # Preocaução "OK"
+    clicaEsquerdo(955, 560) # Preocaução "OK"
     sleep(0.5)
 
     return False
@@ -476,10 +459,10 @@ def configurar_terminal(sincronizacao):
     entra_na_tela('sm010') # Parametros gerais
     sleep(5)
 
-    doubleClick(615, 272) # Principal
+    clicaEsquerdoDuplo(615, 272) # Principal
     sleep(0.5)
 
-    write('pdv')
+    write('nf') # TODO: MUDAR DE ACORDO COM A VERSAO
     sleep(0.5)
 
     press(['enter', 'enter']) # Campo Tipo de Sincronização
@@ -506,12 +489,12 @@ def configurar_terminal(sincronizacao):
     entra_na_tela('sp164') # Sincronizacao
     sleep(1.5)
 
-    click(583, 727) # Sincronizar agora
+    clicaEsquerdo(583, 727) # Sincronizar agora
     sleep(0.5)
-    click(583, 727) # Sincronizar agora
+    clicaEsquerdo(583, 727) # Sincronizar agora
     sleep(6)
 
-    click(619, 591)
+    clicaEsquerdo(619, 591)
     sleep(0.2)
     hotkey('ctrl', 'a') # Seleciona tudo
     sleep(0.5)
@@ -532,7 +515,7 @@ def entrar_no_terminal(usuario):
     abre_exe_pdv()
     sleep(1.5)
 
-    click(847, 477) # Login
+    clicaEsquerdo(847, 477) # Login
     sleep(0.3)
     hotkey('ctrl', 'a')
     sleep(0.3)
@@ -544,7 +527,7 @@ def entrar_no_terminal(usuario):
     press(['enter', 'enter']) # Entra no NEO PDV
     sleep(6)
 
-    press('n') # Para pular pedido de atualizar nova versão caso apareça TODO VRRIFICAR SE FUNCIONOU
+    press('n') # Para pular pedido de atualizar nova versão caso apareça
     sleep(1)
     press('backspace')
     sleep(0.5)
@@ -563,7 +546,7 @@ def entrar_no_terminal(usuario):
     press('insert') # Salvar
 
 def valida_transacoes(transacoes):
-    chk = valida_grid('', transacoes['validacao'])
+    chk = valida_grid_NOVO('', 'centroDireito', transacoes['validacao'])
     if chk: messagebox.showerror('Erro - Transação', 'Esperado: ' + str(transacoes['validacao']))
     return chk
 
@@ -574,8 +557,8 @@ def conferir_notas():
     modulo = {
         'pasta': 'pdv',
         'imagem': 'conferencia_notas',
-        'inicio': '356x161',
-        'fim': '1163x315'
+        'inicio': '351x156',
+        'fim': '1168x320'
     }
 
     return imagens_diferentes(modulo)
@@ -634,22 +617,22 @@ def validar_nfce_neo(args=''):
         7: {'utrib': ['CX'], 'cean': ['1000000000023']},
         8: {'utrib': ['CX'], 'cean': ['1000000000023']},
     }
-    click(1309, 260) # maximiza
+    clicaEsquerdo(1309, 260) # maximiza
     sleep(0.7)
-    click(58, 180) # Primeira venda
+    clicaEsquerdo(58, 180) # Primeira venda
     sleep(0.7)
 
     for venda in xml.values():
-        click(930, 1002) # Scroll
+        clicaEsquerdo(930, 1002) # Scroll
         sleep(0.5)
-        click(851, 926) # Abre XML
+        clicaEsquerdo(851, 926) # Abre XML
         sleep(1)
         clicaCentro()
         hotkey('ctrl', 'a') # Seleciona o conteudo do XML
         hotkey('ctrl', 'c') # Copia o conteudo do XML
         if verifica_xml(venda): return True
         sleep(0.8)
-        click(1338, 259) # fechar
+        clicaEsquerdo(1338, 259) # fechar
         sleep(0.8)
         clicaCentro()
         press('down')
@@ -661,7 +644,7 @@ def validar_nfce_neo(args=''):
     return False
 
 def copiar_tudo(coords):
-    rightClick(coords[0], coords[1])
+    clicaEsquerdoDuplo(coords[0], coords[1])
     sleep(0.75)
     press('t')
 
@@ -673,7 +656,7 @@ def situacao_notas(tipo):
     }
 
     copiar_tudo([503, 988])
-    if valida_grid('empty', validacao[tipo], 0,3,3,3,3,3,3,3,3,3):
+    if valida_grid_NOVO('', [503, 988], validacao[tipo], [0,3,3,3,3,3,3,3,3,3]):
         messagebox.showerror('Erro NFC-e', 'Esperado: ' + str(validacao[tipo]))
         return True
     return False
@@ -704,7 +687,7 @@ def produtos_nota(situacao, nota):
 
 
     copiar_tudo([1467, 990])
-    if valida_grid('empty', aux[nota]):
+    if valida_grid_NOVO('', [1467, 990], aux[nota]):
         messagebox.showerror('Erro NFC-e', 'Esperado: ' + str(aux[nota]))
         return True
     clicaCentro()
@@ -715,7 +698,7 @@ def verifica_notas_confirmadas(args=''):
     sleep(0.7)
     press('insert') # Sai do filtro
     sleep(0.5)
-    click(58, 183)
+    clicaEsquerdo(58, 183)
     sleep(0.3)
 
     # Valida antes de cancelar
@@ -761,7 +744,7 @@ def verifica_notas_canceladas(args=''):
     sleep(0.5)
     press('insert') # Sai do filtro
     sleep(0.5)
-    click(58, 183)
+    clicaEsquerdo(58, 183)
     sleep(0.3)
 
     # Valida antes de cancelar
@@ -820,8 +803,8 @@ def fechar_caixa(args=''):
     modulo = {
         'pasta': 'terminal',
         'imagem': 'fechamentodecaixa1',
-        'inicio': '656x301',
-        'fim': '1282x721'
+        'inicio': '651x296',
+        'fim': '1287x726'
     }
     sleep(2.5)
     if imagens_diferentes(modulo): return True
@@ -834,8 +817,8 @@ def fechar_caixa(args=''):
     modulo = {
         'pasta': 'terminal',
         'imagem': 'fechamentodecaixa_relatorio',
-        'inicio': '823x302',
-        'fim': '1063x1004'
+        'inicio': '818x297',
+        'fim': '1068x1009'
     }
 
     if imagens_diferentes(modulo, (9, 391, 120, 530)): return True
@@ -851,7 +834,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     press('insert') # Sai do filtro
     sleep(0.8)
 
-    click(57, 183)
+    clicaEsquerdo(57, 183)
     sleep(0.5)
 
     # Primeira Nota
@@ -923,7 +906,11 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'shift', 'r') # Aba complementar
     sleep(2)
 
+<<<<<<< HEAD
     click(996, 609) # Cartoes
+=======
+    clicaEsquerdo(851, 614) # Cartoes
+>>>>>>> main
     sleep(2)
 
     # Estorna cartao 1
@@ -967,18 +954,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     press('f5') # Motivo
     sleep(0.8)
 
-    """
-    modulo = {
-        'pasta': 'terminal',
-        'imagem': 'pendenteautorizacao',
-        'inicio': '837x489',
-        'fim': '1121x537'
-    }
-    sleep(4.5)
-    if imagens_diferentes(modulo): return True
-    """
-
-    if valida_grid('', validacaoCancelarNfce[1]): return True
+    if valida_grid_NOVO('', 'centroDireito', validacaoCancelarNfce[1]): return True
 
     press('enter') # Ok
 
@@ -987,8 +963,8 @@ def cancelar_nfce(validacaoCancelarNfce):
     modulo = {
         'pasta': 'terminal',
         'imagem': 'legendas1',
-        'inicio': '11x175',
-        'fim': '27x317'
+        'inicio': '6x170',
+        'fim': '32x322'
     }
     sleep(5)
     if imagens_diferentes(modulo): 
@@ -999,7 +975,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     sleep(2)
     sleep(0.7)
 
-    click(68, 290)
+    clicaEsquerdo(68, 290)
 
     press('f4') # Cancelar
     sleep(0.8)
@@ -1022,7 +998,11 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'shift', 'r') # Aba complementar
     sleep(1.5)
 
+<<<<<<< HEAD
     click(996, 609) # Cartoes
+=======
+    clicaEsquerdo(851, 614) # Cartoes
+>>>>>>> main
     sleep(1.5)
 
     # Estorna cartao 1
@@ -1047,8 +1027,8 @@ def cancelar_nfce(validacaoCancelarNfce):
     modulo = {
         'pasta': 'terminal',
         'imagem': 'legendas2',
-        'inicio': '11x175',
-        'fim': '27x317'
+        'inicio': '6x170',
+        'fim': '32x322'
     }
     
     sleep(2.5)
@@ -1060,14 +1040,14 @@ def cancelar_nfce(validacaoCancelarNfce):
 
 def ajustar_nfce(args=''):
     # Ajustar NFC-e
-    click(491, 87) # Ajustar
+    clicaEsquerdo(491, 87) # Ajustar
     sleep(0.5)
-    click(31, 293) # Nota aberta
+    clicaEsquerdo(31, 293) # Nota aberta
     sleep(0.5)
-    click(655, 84) # Executar
+    clicaEsquerdo(655, 84) # Executar
     sleep(0.5)
 
-    click(491, 87) # Ajustar
+    clicaEsquerdo(491, 87) # Ajustar
     sleep(4)
     return False
-    # TODO VALIDAR AJUSTAR NFCE THIS IS A TEST
+    # TODO VALIDAR AJUSTAR NFCE

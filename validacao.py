@@ -8,6 +8,8 @@ import xml.etree.ElementTree as ET
 from os import mkdir, path
 from tkinter import messagebox
 from shutil import copy as copyImage
+import dados
+from lib import *
 
 def nao_existe_registro(texto):
     hotkey('shift', 'backspace')  # Limpa o campo
@@ -23,16 +25,16 @@ def nao_existe_registro(texto):
 
     return check == ''  
 
-def valida_grid(registro, validacao, *data):
+def valida_grid(registroAValidar, validacao, *data):
 
     sleep(0.3)
-    if registro != '':
+    if registroAValidar != '':
         press('f12')
         sleep(0.5)
-        keyboard.write(registro) # Procura pelo registro
+        keyboard.write(registroAValidar) # Procura pelo registroAValidar
         sleep(0.6)
 
-    if registro != 'empty':
+    if registroAValidar != 'empty':
         largura, altura = size()
         coordenadas_centro = (largura // 2, altura // 2)
         coords =  coordenadas_centro
@@ -58,8 +60,61 @@ def valida_grid(registro, validacao, *data):
 
     except IndexError:
         adicionar_log(f'ERRO - Validacao: {(validacao)}')
+        adicionar_log(f'ERRO - Esperado : {str(validacao)}\n')
+        return True
+    
+    print(f'validacao = {(validacao)}')
+    print(f'capturado = {(aux)}\n')
+    adicionar_log(f'Validacao = {(validacao)}')
+    adicionar_log(f'Capturado = {(aux)}\n')
+
+    chk = aux == validacao
+    
+    return not chk
+
+def valida_grid_NOVO(registroAValidar, coordenadaAClicar, validacao, posicaoARemover=''):
+    copy('')
+    if registroAValidar != '':
+        press('f12')
+        sleep(0.5)
+        keyboard.write(registroAValidar) # Procura pelo registroAValidar
+        sleep(0.6)
+
+    if type(coordenadaAClicar) == list: # Eh uma coordenadaAClicar
+        clicaEsquerdo(coordenadaAClicar[0], coordenadaAClicar[1])
+    elif coordenadaAClicar == 'centroDireito': # Copiar tuudo
+        largura, altura = size()
+        coordenadas_centro = (largura // 2, altura // 2)
+        coords =  coordenadas_centro
+        clicaDireito(coords[0], coords[1]) # Clica no centro
+    else: # Eh uma string Clica Centro
+        largura, altura = size()
+        coordenadas_centro = (largura // 2, altura // 2)
+        coords =  coordenadas_centro
+        clicaEsquerdo(coords[0], coords[1]) # Clica no centro
+        hotkey('ctrl', 'c')
+
+    sleep(0.75)
+    press('t') # Copia tudo
+    sleep(0.4)
+
+    content = paste()
+    sleep(0.4)
+
+    try:
+        content = content.split('\r') # Divide entre labels e valores
+        content.pop(0) # Retira os labels
+
+        aux = []
+        for _ in content:
+            aux += _.split('\t')
+
+        if posicaoARemover != -1:
+            for indx in posicaoARemover: aux.pop(indx)
+
+    except IndexError:
+        adicionar_log(f'ERRO - Validacao: {(validacao)}')
         adicionar_log(f'ERRO - Esperado : {str(validacao)}')
-        #messagebox.showerror("Erro!", "Esperado - '" + str(validacao) + "'")
         return True
     
     print(f'validacao = {(validacao)}')
@@ -68,26 +123,23 @@ def valida_grid(registro, validacao, *data):
     adicionar_log(f'Capturado = {(aux)}')
 
     chk = aux == validacao
-
-    #if not chk: # Diferentes
-        #messagebox.showerror("Erro!", "Esperado - '" + str(validacao) + "'")
     
     return not chk
         
-def substitui_imagem(modulo):
+def substitui_imagem(modulo): #TODO MUDAR DE PREVIAS PARA O NOME DA MAQUINA | TESTAR
     newImage = f'{modulo['imagem']}.png'
     try:
-        mkdir(f'./previas/{modulo['pasta']}') if not path.exists(f'./previas/{modulo['pasta']}') else True
+        mkdir(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}') if not path.exists(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}') else True
         print(f'./{modulo['pasta']}/{newImage}')
-        copyImage(f'./captura.png', f'./previas/{modulo['pasta']}/{modulo['imagem']}.png')
+        copyImage(f'./captura.png', f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}/{modulo['imagem']}.png')
 
     except Exception as err:
         print(f'Erro ao copiar a nova imagem: {err}')
         messagebox.showerror('Erro ao copiar a nova imagem', err)
 
 def captura_imagem_naoexistente(inicio, fim):
-    top, left = map(int, inicio.split("x"))
-    bottom, right = map(int, fim.split("x"))
+    top, left = calcular_xy(inicio)
+    bottom, right = calcular_xy(fim)
 
     width = right - left
     height = bottom - top
@@ -101,21 +153,21 @@ def captura_imagem_naoexistente(inicio, fim):
     captura.save('captura.png')
     cap = cv2.imread('./captura.png')
 
-def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
+def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)): #TODO MUDAR DE PREVIAS PARA O NOME DA MAQUINA | TESTAR
 
     # Se nao existir a pasta, cria a pasta e salva a imagem
-    if not path.exists(f'./previas/{modulo['pasta']}'):
-        mkdir(f'./previas/{modulo['pasta']}')
+    if not path.exists(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}'):
+        mkdir(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}')
     
-    if not path.exists(f'./previas/{modulo['pasta']}/{modulo['imagem']}.png'):
-        captura_imagem_naoexistente(modulo['inicio'], modulo['fim']);
+    if not path.exists(f'./Imagens/{dados.banco['nome_maquina']}/{modulo['pasta']}/{modulo['imagem']}.png'):
+        captura_imagem_naoexistente(modulo['inicio'], modulo['fim'])
         substitui_imagem(modulo)
         return False
     
     check = captura_imagem(modulo['inicio'], modulo['fim'], modulo['pasta'], modulo['imagem'], coordenada_a_ignorar)
 
     # Se existir a pasta mas nao a imagem salva a imagem
-    if modulo['pasta'] == 'campos':
+    if modulo['pasta'] == 'campos': # TODO REMOVER QUANDO MUDAR AS VALIDACOES PARA TEXTO
         return not check  # Iguais
     else:
         if check:  # Iguais
@@ -125,13 +177,13 @@ def imagens_diferentes(modulo, coordenada_a_ignorar=(0, 0, 0, 0)):
     adicionar_log(f'ERRO - Imagem {modulo['pasta']}\\{modulo['imagem']} não confere!')
     res = messagebox.askyesno('As imagens não conferem', 'Deseja salvar a nova imagem e continuar a execução do teste?')
     
-    sleep(1)
-    click(960, 528) # clica no centro da tela
+    sleep(0.5)
     
     if res:
         substitui_imagem(modulo)
+        clicaCentro() # clica no centro da tela
         return False
-
+    
     return True
 
 def adicionar_log(texto):
@@ -169,4 +221,22 @@ def valida_visualizacao_xml(tag, valorTag): # <uTrib> {UN e CX } <cEAN> {SEM GTI
 
     if tag is not None: # Encontrou
         if tag.text != valorTag: return True
+    return False
+
+def verifica_estoque_alterado(venda):
+    maximizar_janela(1)
+    sleep(4)
+    entra_na_tela('sp001') # Tela Produtos
+    sleep(0.3)
+    press('insert') # Sai do filtro
+    sleep(0.5)
+
+    for prod in venda['produtos']:
+        hotkey('shift', 'backspace')
+        if valida_grid_NOVO(prod['produto'], 'centroDireito', prod['validacao'], [18]): 
+            messagebox.showerror('Erro - Estoque Porduto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
+            return True
+
+    press('esc')
+
     return False

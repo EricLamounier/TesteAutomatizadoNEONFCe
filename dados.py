@@ -1,6 +1,6 @@
 forcaCancelaExecucao = { 'status': False}
 
-banco = { 'ip_maquina': '127.0.0.1' }
+banco = { 'ip_maquina': '127.0.0.1', 'nome_maquina': '' }
 
 erros = { 'cont': 0, 'janela': [] }
 
@@ -18,7 +18,7 @@ finalizadora1 = {
     'desconto': '0',
     'habPromocao': 'nao',
     'meioPagamento': 'dinheiro',  
-    'validacao': ['Dinheiro', '1', 'Dinheiro', 'N', 'N', 'N', 'N', 'F3', 'Dinheiro', 'N', 'N', '1']
+    'validacao': ['Dinheiro', '1', 'Dinheiro', 'N', 'N', 'N', 'N', 'F3', 'Dinheiro', 'N', 'N', '1', '']
 }
 
 finalizadora2 = {
@@ -34,7 +34,7 @@ finalizadora2 = {
     'desconto': '0',
     'habPromocao': 'nao',
     'meioPagamento': 'cartao da',  # Credito Loja / Crédito em Loja
-    'validacao': ['A prazo', '2', 'Outros', 'S', 'N', 'S', 'N', 'F4', 'Cartão da Loja (Private Label)', 'N', 'N', '1']
+    'validacao': ['A prazo', '2', 'Outros', 'S', 'N', 'S', 'N', 'F4', 'Cartão da Loja (Private Label)', 'N', 'N', '1', '']
 }
 
 finalizadora3 = {
@@ -50,7 +50,7 @@ finalizadora3 = {
     'desconto': '0',
     'habPromocao': 'nao',
     'meioPagamento': 'cartao de cre',  
-    'validacao': ['Cartão Crédito', '3', 'Cartão', 'N', 'N', 'N', 'N', 'F5', 'Cartão de Crédito', 'N', 'N', '1']
+    'validacao': ['Cartão Crédito', '3', 'Cartão', 'N', 'N', 'N', 'N', 'F5', 'Cartão de Crédito', 'N', 'N', '1', '']
 }
 
 finalizadora4 = {
@@ -66,7 +66,7 @@ finalizadora4 = {
     'desconto': '0',
     'habPromocao': 'nao',
     'meioPagamento': 'cartao de de',  
-    'validacao': ['Cartão Débito', '4', 'Cartão', 'N', 'N', 'N', 'N', 'F6', 'Cartão de Débito', 'N', 'N', '1']
+    'validacao': ['Cartão Débito', '4', 'Cartão', 'N', 'N', 'N', 'N', 'F6', 'Cartão de Débito', 'N', 'N', '1', '']
 }
 
 finalizadora5 = {
@@ -82,12 +82,12 @@ finalizadora5 = {
     'desconto': '0',
     'habPromocao': 'nao',
     'meioPagamento': 'cartao de cre',  
-    'validacao': ['Crédito 2x', '5', 'Cartão', 'N', 'N', 'N', 'N', 'F7', 'Cartão de Crédito', 'N', 'N', '1']
+    'validacao': ['Crédito 2x', '5', 'Cartão', 'N', 'N', 'N', 'N', 'F7', 'Cartão de Crédito', 'N', 'N', '1', '']
 }
 
 operadoraCartao1 = {
     'operadora': '#empresa1',
-    'validacao': ['#empresa1', 'Cartão a Receber', 'S', '']
+    'validacao': ['#empresa1', 'Cartão a Receber', 'S', '', '']
 }
 
 transacao1 = {
@@ -224,7 +224,7 @@ formaPagamento1 = { # A vista
     'desconto': '0',
     'meioPagamento': 'dinheiro',
     'finalizadora': '1',
-    'validacao': ['A Vista', '1', 'A Vista', '0', '1', 'S', '0', 'S', 'Ambos', 'Dinheiro', '', 'Dinheiro']
+    'validacao': ['A Vista', '1', 'A Vista', '0', '1', 'S', '0', 'S', 'Ambos', 'Dinheiro', '', 'Dinheiro', '']
 }
 
 # Forma de Pagamento
@@ -243,7 +243,7 @@ formaPagamento2 = { # A prazo
     'desconto': '0',
     'meioPagamento': 'cartao da', # credito em loja / crédito loja
     'finalizadora': '2',
-    'validacao': ['A Prazo', '2', 'Crediário', '0', '2', 'N', '0', 'S', 'Ambos', 'Cartão da Loja (Private Label)', '', 'A prazo']
+    'validacao': ['A Prazo', '2', 'Crediário', '0', '2', 'N', '0', 'S', 'Ambos', 'Cartão da Loja (Private Label)', '', 'A prazo', '']
 }
 
 sincronizacao = {
@@ -271,7 +271,7 @@ dav1 = {
          'validacao':['#produto1', '1', '1000000000016', '2,59', '3,00', '291,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '103', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '291,000', '2,59', 'UN', '0', 'T', 'T', '1001.19.00', '', '0,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '0,00', '0,00', '5.102', '0,000', '0,000', '0,00', '0,00', '15,83', '-100,00', '', '', '', '0,00', '0,00', '0,00', '', '0,00', '']
          }
     ],
-    'validacaoVenda': ['', '1', 'P', '10,00', '1', '1000000000016', '', '#produto1', '5.102', '3,00', '0,00', '0,00', '30,00', '', '#pessoaresponsável', '1001.19.00', '-- Outros', '5.102', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Unidade'],
+    'validacaoVenda': ['', '1', 'P', '10,00', '1', '1000000000016', '', '#produto1', '5.102', '3,00', '0,00', '0,00', '0,00', '30,00', '', '#pessoaresponsável', '1001.19.00', '-- Outros', '5.102', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Unidade'],
     'validacaoFinanceiro': ['1/1', '07/03/2024', '', '15,00', '0,00', '15,00', '1/2', '07/04/2024', '', '15,00', '0,00', '15,00'],
     'validacaoDav': ['#pessoa1', '1', '1', '30,00', 'Confirmado', 'S', 'S', 'Pedido Venda', '', 'Não', '', '', '00:00', '', '', '', '', '', 'MG', 'São Gotardo', '', '#pessoaresponsável', 'Venda', '', 'A Prazo', '5.102', 'Sem Ocorrência de Transporte', '0,00', '30,00', '0,00', '0,00', '0,00', '0,00', '30,00', '0,00', '0,00', '0,00', '0,00', '', '', ''],
     'comprovante': {
@@ -312,7 +312,7 @@ dav2 = {
          'validacao':['#produto2', '2', '1000000000023', '15,37', '20,00', '117,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '117,000', '15,37', 'UN', '12', 'T', 'T', '1001.19.00', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '0,00', '0,00', '5.102', '0,000', '0,000', '0,00', '0,00', '30,12', '-100,00', '012345678912', 'CX', '5,00', '0,00', '0,00', '0,00', '', '0,00', '']
          }
     ],
-    'validacaoVenda': ['', '1', 'P', '15,00', '2', '1000000000023', '', '#produto2', '5.102', '20,00', '0,00', '0,85', '299,15', '', '#pessoaresponsável', '1001.19.00', '-- Outros', '5.102', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Unidade'],
+    'validacaoVenda': ['', '1', 'P', '15,00', '2', '1000000000023', '', '#produto2', '5.102', '20,00', '0,00', '0,85', '0,00', '299,15', '', '#pessoaresponsável', '1001.19.00', '-- Outros', '5.102', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', 'Unidade'],
     'validacaoDav': ['#pessoa2', '1', '1', '30,00', 'Confirmado', 'S', 'S', 'Pedido Venda', '', 'Não', '', '', '00:00', '', '', '', '', '', 'MG', 'São Gotardo', '', '#pessoaresponsável', 'Venda', '', 'A Vista', '5.102', 'Sem Ocorrência de Transporte', '0,00', '299,15', '0,00', '0,00', '0,00', '0,00', '299,15', '0,00', '0,00', '0,00', '0,00', '', '', ''],
     'nota': {
         'cnpj': '04.248.801/0001-21',
@@ -320,7 +320,8 @@ dav2 = {
         'data': '',
         'rodape': 'Cliente: 2 - #pessoa2 CNPJ: 04.140.757/0001-31',
         'operador': '#usuário1'
-    }
+    },
+    'validacaoMensagem': ['\nNeopdv', '\n---------------------------', '\nTexto não encontrado ', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n', '\n'],
 }
 
 davRapido1 = {
@@ -351,7 +352,7 @@ davRapido1 = {
         'vencimento2': '', # Data atual + 2 meses
         'liquido': '600',
         'data': '', # Data atual
-        'operador': '#usuário1'
+        'operador': '#usuário1',
     },
     'nota': {
         'cnpj': '04.248.801/0001-21',
@@ -363,7 +364,8 @@ davRapido1 = {
     'tela1': 'davrapido1_tela1',
     'tela2': 'davrapido1_tela2',
     'tela3': 'davrapido1_financeiro',
-    'dav': 'davrapido1'
+    'dav': 'davrapido1',
+    'validacaoMensagem': ['\nNeopdv', '\n---------------------------', '\nTexto não encontrado ', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n', '\n'],
 }
 
 davRapido2 = {
@@ -380,7 +382,7 @@ davRapido2 = {
          'validacao':   ['#produto2', '2', '1000000000023', '15,37', '20,00', '117,000', '0,00', '0,00', 'S', '0,00', 'Unidade', '900', 'Teste Marca', 'Teste Grupo', 'Teste Subgrupo', '', '00 - Mercadoria para Revenda', '00', '0', '0', '0,000', '0,000', '0,000', '117,000', '15,37', 'UN', '12', 'T', 'T', '1001.19.00', '', '12,00', '', '0', '', '', 'Nenhum', '', '', 'N', '', '0,000', '0,00', '0,00', '0,00', '5.102', '0,000', '0,000', '0,00', '0,00', '30,12', '-100,00', '012345678912', 'CX', '5,00', '0,00', '0,00', '0,00', '', '0,00', ''],
         },
     ],
-    'comprovante': { # TODO TIRAR O PRINT DE NOVO POIS ESTA ERRADO O CLIENTE
+    'comprovante': {
         'cnpj': '04.248.801/0001-21',
         'cliente': 'Cliente: 4 - #pessoa5',
         'cpf': '341.010.576-05',
@@ -394,7 +396,7 @@ davRapido2 = {
         'data': '', # Data atual
         'operador': '#usuário1'
     },
-    'nota': { # TODO TIRAR PRINT DE NOVO POIS ESTA ERRADO O CLIENTE
+    'nota': {
         'cnpj': '04.248.801/0001-21',
         'cpf': '48.149.882/0001-88',
         'data': '',
@@ -403,7 +405,8 @@ davRapido2 = {
     },
     'tela1': 'davrapido2_tela1',
     'tela2': 'davrapido2_tela2',
-    'dav': 'davrapido2'
+    'dav': 'davrapido2',
+    'validacaoMensagem': ['\nNeopdv', '\n---------------------------', '\nTexto não encontrado ', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n', '\n'],
 }
 
 vendaAvulsa1 = {
@@ -442,6 +445,7 @@ vendaAvulsa1 = {
     'finalizadora': '5', # Credito 2x
     'desconto': '0',
     'autorizaVenda': False,
+    'validacaoMensagem': ['\nNeopdv', '\n---------------------------', '\nTexto não encontrado ', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n', '\n'],
 }
 
 vendaAvulsa2 = {
@@ -473,7 +477,8 @@ vendaAvulsa2 = {
         'vencimento2': '', # Data atual + 2 meses
         'liquido': '500',
         'data': '', # Data atual
-        'operador': '#usuário1'
+        'operador': '#usuário1',
+        'validacaoMensagem': ['\nNeopdv', '\n---------------------------', '\nTexto não encontrado ', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n', '\n'],
     },
     'nota': {
         'cnpj': '',
@@ -503,6 +508,7 @@ vendaAvulsa3 = {
     'desconto': '150',
     'descontoCorreto': '15',
     'autorizaVenda': True,
+    'validacaoMensagem': ['\nNeopdv', '\n---------------------------', '\nTexto não encontrado ', '\n---------------------------', '\nOK   ', '\n---------------------------', '\n', '\n'],
 }
 
 unidadeTributavel = {
