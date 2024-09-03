@@ -1,5 +1,6 @@
 from lib import *
 from dados import *
+from validacao import *
 
 def cadastro_produto_padrao(produto):
     sleep(0.3)
@@ -107,7 +108,7 @@ def cadastro_produto(produto):
     press('insert') # Salva
     sleep(0.5)
 
-    chk = valida_grid('', produto['validacao'], 18)
+    chk = valida_grid_NOVO('', 'centroDireito', produto['validacao'], [18])
 
     if chk:
         messagebox.showerror('Erro - Produto - ' + produto['cod'], ' Esperado: ' + str(produto['validacao']))
@@ -151,7 +152,7 @@ def ajustar_estoque(produto): # Ajusta estoque do produto variação
     press('esc') # Sai
     sleep(0.6)
 
-    chk = valida_grid('', produto['validacaoAjusteEstoque'], 18)
+    chk = valida_grid_NOVO('', 'centroDireito', produto['validacaoAjusteEstoque'], [18])
     if chk:
         messagebox.showerror('Erro - Ajuste Produto - ' + produto['cod'], 'Esperado: ' + str(produto['validacao']))
         return chk
@@ -186,7 +187,7 @@ def cadastro_unidade_tributavel(unidadeTributavel):
     hotkey('ctrl', 'tab') # Complementar
     sleep(1)
 
-    click(1099, 334) # Unidade Tributavel
+    clicaEsquerdo(1099, 334) # Unidade Tributavel
     sleep(0.5)
     write('0')
     sleep(0.3)
@@ -214,7 +215,7 @@ def cadastro_unidade_tributavel(unidadeTributavel):
   
 
     # VALIDA PRODUTO
-    chk = valida_grid('', unidadeTributavel['validacao'], 18)
+    chk = valida_grid_NOVO('', 'centroDireito', unidadeTributavel['validacao'], [18])
     if chk:
         messagebox.showerror('Erro', 'Erro - Produto com Unidade Tributável Errada!')
         return True
@@ -238,7 +239,7 @@ def valida_estoque_final(produtos):
 
     for prod in produtos['produtos']:
         hotkey('shift', 'backspace')
-        if valida_grid(prod['produto'], prod['validacao'], 18): 
+        if valida_grid_NOVO(prod['produto'], 'centroDireito', prod['validacao'], [18]): 
             messagebox.showerror('Erro - Produto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
             return True
         

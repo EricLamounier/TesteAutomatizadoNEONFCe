@@ -1,4 +1,5 @@
 from lib import *
+from validacao import *
 
 def cadastro_pessoa(pessoa):
     press('f2')
@@ -54,7 +55,6 @@ def logar_com_usuario(usuario):
     hotkey('ctrl', 'f4') # Sai do NEO
     sleep(2)
 
-    click(1077, 548)
 
     write(dados.banco['nomeBanco']) # Digita o nome do banco do Teste Automatizado do NEOPLUS
     press('enter') # Seleciona o banco
@@ -106,15 +106,15 @@ def cadastro_classificacao_cliente(classificacao):
 
     sleep(1)
 
-    click(849, 608) # Replica para todas as guias
+    clicaEsquerdo(849, 608) # Replica para todas as guias
     sleep(0.5)
-    click(849, 608)
+    clicaEsquerdo(849, 608)
     sleep(0.6)
 
     press('insert') # Salva
     sleep(0.8)
 
-    chk = valida_grid(classificacao['classificacao'], classificacao['validacao'])
+    chk = valida_grid_NOVO(classificacao['classificacao'], 'centroDireito', classificacao['validacao'])
     sleep(0.5)
 
     press('esc')
@@ -195,7 +195,7 @@ def cadastro_cliente_5(cliente):
     press('insert') # Salva a pessoa
     sleep(0.3)
 
-    chk = valida_grid(cliente['doc'], cliente['validacao'], 20, 21)
+    chk = valida_grid_NOVO(cliente['doc'], 'centroDireito', cliente['validacao'], [20, 21])
 
     sleep(0.3)
     press('esc')

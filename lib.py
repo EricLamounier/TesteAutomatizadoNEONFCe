@@ -1,7 +1,6 @@
-from pyautogui import click, press, hotkey, write, doubleClick, rightClick, size, moveTo
+from pyautogui import click, press, hotkey, write, doubleClick, rightClick, size, moveTo, size
 import keyboard
 from pygetwindow import getWindowsWithTitle
-from validacao import *
 from time import sleep
 from random import randint
 from pyperclip import copy, paste, waitForPaste
@@ -20,8 +19,30 @@ def obter_data(qtdMes_a_mais=0):
     nova_data_formatada = nova_data.strftime("%d/%m/%Y")
     return nova_data_formatada
 
+def calcular_xy(coordenada):
+    screen_width, screen_height = size()
+    x,y = map(int, coordenada.split("x"))
+    x = (screen_width / 2) + (x - 960)
+    y = (screen_height / 2) + (y - 540)
+    return x, y
+
 def clicaCentro():
-    click(960, 528)
+    screen_width, screen_height = size()
+    center_x = screen_width / 2
+    center_y = screen_height / 2
+    click(center_x, center_y)
+
+def clicaEsquerdo(x, y):
+    x, y = calcular_xy('x'.join([str(x),str(y)]))
+    click(x, y)
+
+def clicaDireito(x, y):
+    x, y = calcular_xy('x'.join([str(x),str(y)]))
+    rightClick(x, y)
+
+def clicaEsquerdoDuplo(x, y):
+    x, y = calcular_xy('x'.join([str(x),str(y)]))
+    doubleClick(x, y)
 
 def abre_exe_pdv(arg=''):
     title = r"C:\Realtec\Neo\Exe\NeoPDV.exe"
@@ -97,21 +118,3 @@ def excluir_arquivo_acbr():
             print(f'Ocorreu um erro ao excluir o arquivo: {e}')
     else:
         print(f'O arquivo {caminho_arquivo} não foi encontrado.')
-
-def verifica_estoque_alterado(venda):
-    maximizar_janela(1)
-    sleep(4)
-    entra_na_tela('sp001') # Tela Produtos
-    sleep(0.3)
-    press('insert') # Sai do filtro
-    sleep(0.5)
-
-    for prod in venda['produtos']:
-        hotkey('shift', 'backspace')
-        if valida_grid(prod['produto'], prod['validacao'], 18): 
-            messagebox.showerror('Erro - Estoque Porduto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
-            return True
-
-    press('esc')
-
-    return False
