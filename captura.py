@@ -168,7 +168,7 @@ def captura_imagem(inicio, fim, modulo, imagem, coordenadas_a_ignorar):
     width = right - left
     height = bottom - top
     
-    captura = screenshot(region=(top, left, height, width))
+    captura = screenshot(region=(int(top), int(left), int(height), int(width)))
     
     # Verifica se a captura foi bem-sucedida
     if captura is None:
