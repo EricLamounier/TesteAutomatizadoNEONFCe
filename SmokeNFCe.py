@@ -20,6 +20,7 @@ WINDOW_TITLE = "Teste Automatizado NEONFC-e (BETA)"
 ICON_PATH = join(dirname(__file__), 'assets', 'logo.ico')
 
 def inicia_opcao(opcoes_menu, opt, ip_maquina):
+    
     dados.forcaCancelaExecucao['status'] = False
     
     selected_texto = opcoes_menu.get()
@@ -30,9 +31,14 @@ def inicia_opcao(opcoes_menu, opt, ip_maquina):
     if dados.banco['ip_maquina'] == '10.1.10.-' or dados.banco['ip_maquina'] == '': dados.banco['ip_maquina'] = '127.0.0.1'
 
     # Verifica se existe a pasta do usuario em questão
+    if not exists(r"./Imagens/"):
+        mkdir(r"./Imagens/")
+        
     dirImagens = r"./Imagens/" + dados.banco['nome_maquina']
     if not exists(dirImagens):
-        copytree(r"./Imagens/Previas", dirImagens)
+        mkdir(r"./Imagens/" + dados.banco['nome_maquina'])
+        if exists(r"./Imagens/Previas"):
+            copytree(r"./Imagens/Previas", dirImagens)
 
     largura, altura = size()
     coordenadas_centro = (largura // 2, altura // 2)
