@@ -154,9 +154,6 @@ def forcarFechar():
     except CalledProcessError:
         pass
 
-sleep(5)
-forcarFechar()
-
 def atalhoPararExecucao():
     add_hotkey('alt', pararExecucao)
     add_hotkey('delete', forcarFechar)
