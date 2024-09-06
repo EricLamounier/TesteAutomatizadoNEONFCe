@@ -1,5 +1,6 @@
 from os.path import join, dirname, exists
 from shutil import copytree
+from subprocess import run, CalledProcessError
 from os import mkdir, walk, remove
 from tkinter import Tk, Text, Listbox, messagebox, DISABLED, NORMAL, END, SINGLE
 from pyautogui import click, size, hotkey
@@ -142,6 +143,7 @@ def change_color(msg):
     # Aplica a tag à linha atual
     barra_lateral.tag_add(tag_name, start_index, end_index)
 
+
 def forcarFechar():
     try:
         # Tenta matar o processo 'python.exe'
@@ -153,7 +155,7 @@ def forcarFechar():
         run(['taskkill', '/IM', 'SmokeNFCe.exe', '/F'], capture_output=True, text=True, check=True)
     except CalledProcessError:
         pass
-
+    
 def atalhoPararExecucao():
     add_hotkey('alt', pararExecucao)
     add_hotkey('delete', forcarFechar)
