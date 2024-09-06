@@ -906,7 +906,9 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'shift', 'r') # Aba complementar
     sleep(2)
 
+
     clicaEsquerdo(851, 614) # Cartoes
+
     sleep(2)
 
     # Estorna cartao 1

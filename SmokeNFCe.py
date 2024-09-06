@@ -10,6 +10,7 @@ from tkinter import ttk
 from math import floor
 import socket
 import dados
+from subprocess import run, CalledProcessError
 
 from funcoes_gerais_neo import *
 from cadastro_produtos import *
@@ -154,7 +155,7 @@ def forcarFechar():
         run(['taskkill', '/IM', 'SmokeNFCe.exe', '/F'], capture_output=True, text=True, check=True)
     except CalledProcessError:
         pass
-    
+
 def atalhoPararExecucao():
     add_hotkey('alt', pararExecucao)
     add_hotkey('delete', forcarFechar)
