@@ -78,11 +78,7 @@ def parametros_gerais(arg=''):
         hotkey('shift', 'tab')
     sleep(0.3)
 
-<<<<<<< HEAD
-    write('nf') # PDV/NFC-e
-=======
     write('nf') # PDV/NFC-e # TODO: 2.53 PDV 2.54 NFCE
->>>>>>> main
     sleep(0.5)
 
     press('enter')
@@ -466,11 +462,8 @@ def configurar_terminal(sincronizacao):
     clicaEsquerdoDuplo(615, 272) # Principal
     sleep(0.5)
 
-<<<<<<< HEAD
-    write('nf')
-=======
     write('nf') # TODO: MUDAR DE ACORDO COM A VERSAO
->>>>>>> main
+
     sleep(0.5)
 
     press(['enter', 'enter']) # Campo Tipo de Sincronização
