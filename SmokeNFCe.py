@@ -141,9 +141,18 @@ def change_color(msg):
     # Aplica a tag à linha atual
     barra_lateral.tag_add(tag_name, start_index, end_index)
 
+
 def forcarFechar():
-    teste = run(['taskkill', '/IM', 'python.exe', '/F'], capture_output=True, text=True)
-    messagebox.showinfo('Processo não encontrado!', teste.stderr)
+    try:
+        # Tenta matar o processo 'python.exe'
+        run(['taskkill', '/IM', 'python.exe', '/F'], capture_output=True, text=True, check=True)
+    except CalledProcessError:
+        pass
+    try:
+        # Tenta matar o processo 'SmokeNFCe.exe'
+        run(['taskkill', '/IM', 'SmokeNFCe.exe', '/F'], capture_output=True, text=True, check=True)
+    except CalledProcessError:
+        pass
     
 def atalhoPararExecucao():
     add_hotkey('alt', pararExecucao)
@@ -153,10 +162,6 @@ def pararExecucao():
     hotkey('ctrl', 'shift', 'esc')
     dados.forcaCancelaExecucao['status'] = True
     messagebox.showinfo("Parando Teste", "Aguarde a finalização dessa etapa ou bloqueie seu computador para parar imediatamente...")
-    
-def forcarFechar():
-    teste = run(['taskkill', '/IM', 'python.exe', '/F'], capture_output=True, text=True)
-    messagebox.showinfo('Processo não encontrado!', teste.stderr)
     
 def inativar_produtos():
     messagebox.showinfo("Teste", "Teste Teste Teste Teste Teste Teste Teste...")
