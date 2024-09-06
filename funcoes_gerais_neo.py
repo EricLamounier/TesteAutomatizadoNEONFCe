@@ -462,7 +462,7 @@ def configurar_terminal(sincronizacao):
     clicaEsquerdoDuplo(615, 272) # Principal
     sleep(0.5)
 
-    write('nf') # TODO: MUDAR DE ACORDO COM A VERSAO
+    write('pdv') # TODO: MUDAR DE ACORDO COM A VERSAO
     sleep(0.5)
 
     press(['enter', 'enter']) # Campo Tipo de Sincronização
