@@ -462,7 +462,7 @@ def configurar_terminal(sincronizacao):
     clicaEsquerdoDuplo(615, 272) # Principal
     sleep(0.5)
 
-    write('pdv') # TODO: MUDAR DE ACORDO COM A VERSAO
+    write('nf') # TODO: MUDAR DE ACORDO COM A VERSAO
     sleep(0.5)
 
     press(['enter', 'enter']) # Campo Tipo de Sincronização
@@ -906,11 +906,9 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'shift', 'r') # Aba complementar
     sleep(2)
 
-<<<<<<< HEAD
-    click(996, 609) # Cartoes
-=======
+
     clicaEsquerdo(851, 614) # Cartoes
->>>>>>> main
+
     sleep(2)
 
     # Estorna cartao 1
@@ -998,11 +996,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     hotkey('ctrl', 'shift', 'r') # Aba complementar
     sleep(1.5)
 
-<<<<<<< HEAD
-    click(996, 609) # Cartoes
-=======
     clicaEsquerdo(851, 614) # Cartoes
->>>>>>> main
     sleep(1.5)
 
     # Estorna cartao 1
