@@ -108,7 +108,7 @@ def cadastro_produto(produto):
     press('insert') # Salva
     sleep(0.5)
 
-    chk = valida_grid_NOVO('', 'centroDireito', produto['validacao'], [18])
+    chk = valida_grid('', 'centroDireito', produto['validacao'], [18])
 
     if chk:
         messagebox.showerror('Erro - Produto - ' + produto['cod'], ' Esperado: ' + str(produto['validacao']))
@@ -152,7 +152,7 @@ def ajustar_estoque(produto): # Ajusta estoque do produto variação
     press('esc') # Sai
     sleep(0.6)
 
-    chk = valida_grid_NOVO('', 'centroDireito', produto['validacaoAjusteEstoque'], [18])
+    chk = valida_grid('', 'centroDireito', produto['validacaoAjusteEstoque'], [18])
     if chk:
         messagebox.showerror('Erro - Ajuste Produto - ' + produto['cod'], 'Esperado: ' + str(produto['validacao']))
         return chk
@@ -215,7 +215,7 @@ def cadastro_unidade_tributavel(unidadeTributavel):
   
 
     # VALIDA PRODUTO
-    chk = valida_grid_NOVO('', 'centroDireito', unidadeTributavel['validacao'], [18])
+    chk = valida_grid('', 'centroDireito', unidadeTributavel['validacao'], [18])
     if chk:
         messagebox.showerror('Erro', 'Erro - Produto com Unidade Tributável Errada!')
         return True
@@ -239,7 +239,7 @@ def valida_estoque_final(produtos):
 
     for prod in produtos['produtos']:
         hotkey('shift', 'backspace')
-        if valida_grid_NOVO(prod['produto'], 'centroDireito', prod['validacao'], [18]): 
+        if valida_grid(prod['produto'], 'centroDireito', prod['validacao'], [18]): 
             messagebox.showerror('Erro - Produto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
             return True
         
