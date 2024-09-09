@@ -8,7 +8,7 @@ def busca_no_relatorio(doc, mensagem, busca=1):
         press('enter')
     else:
         press('f2')
-    return not valida_grid_NOVO('', 'clicaEsquerdo', mensagem)
+    return not valida_grid('', 'clicaEsquerdo', mensagem)
 
 
 def cola_nota(content):

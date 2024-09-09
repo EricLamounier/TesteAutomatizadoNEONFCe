@@ -25,7 +25,7 @@ def nao_existe_registro(texto):
 
     return check == ''  
 
-def valida_grid(registroAValidar, validacao, *data):
+def valida_grid_OLD(registroAValidar, validacao, *data):
 
     sleep(0.3)
     if registroAValidar != '':
@@ -72,7 +72,7 @@ def valida_grid(registroAValidar, validacao, *data):
     
     return not chk
 
-def valida_grid_NOVO(registroAValidar, coordenadaAClicar, validacao, posicaoARemover=''):
+def valida_grid(registroAValidar, coordenadaAClicar, validacao, posicaoARemover=''):
     copy('')
     if registroAValidar != '':
         press('f12')
@@ -233,7 +233,7 @@ def verifica_estoque_alterado(venda):
 
     for prod in venda['produtos']:
         hotkey('shift', 'backspace')
-        if valida_grid_NOVO(prod['produto'], 'centroDireito', prod['validacao'], [18]): 
+        if valida_grid(prod['produto'], 'centroDireito', prod['validacao'], [18]): 
             messagebox.showerror('Erro - Estoque Porduto - ' + prod['produto'], 'Esperado: ' + str(prod['validacao']))
             return True
 
