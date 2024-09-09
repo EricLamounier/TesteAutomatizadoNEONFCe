@@ -209,7 +209,7 @@ def cadastro_operadora_cartao(operadora):
 
     press('insert') # Salvar
 
-    chk = valida_grid_NOVO(operadora['operadora'], 'centroDireito', operadora['validacao'])
+    chk = valida_grid(operadora['operadora'], 'centroDireito', operadora['validacao'])
  
     if chk: messagebox.showerror('Erro - Operadora Cartão', 'Esperado: ' + str(operadora['validacao']))
 
@@ -309,7 +309,7 @@ def cadastro_finalizadora(finalizadora):
     press('insert')
     sleep(0.5)
 
-    chk = valida_grid_NOVO(finalizadora['finalizadora'], 'centroDireito', finalizadora['validacao'])
+    chk = valida_grid(finalizadora['finalizadora'], 'centroDireito', finalizadora['validacao'])
     sleep(0.5)
 
     if chk: messagebox.showerror('Erro - Finalizadora', 'Esperado: ' + str(finalizadora['validacao']))
@@ -384,7 +384,7 @@ def cadastro_forma_pagamento(formaPagamento):
     press('insert') # Salva
     sleep(0.6)
 
-    chk = valida_grid_NOVO(formaPagamento['forma'], 'centroDireito', formaPagamento['validacao'])
+    chk = valida_grid(formaPagamento['forma'], 'centroDireito', formaPagamento['validacao'])
     sleep(0.2)
 
     if chk: messagebox.showerror('Erro - Forma Pagamento', 'Esperado: ' + str(formaPagamento['validacao']))
@@ -415,7 +415,7 @@ def cria_terminal(validacaoTerminal):
     press('enter') # Salvar
     sleep(4.5)
 
-    if valida_grid_NOVO('', 'clicaEsquerdo', validacaoTerminal[1]): return True
+    if valida_grid('', 'clicaEsquerdo', validacaoTerminal[1]): return True
 
     sleep(1)
     press('enter') # Configurado com sucesso OK
@@ -424,7 +424,7 @@ def cria_terminal(validacaoTerminal):
     press('s') # Sincronizar terminais
     sleep(35)
 
-    if valida_grid_NOVO('', 'clicaEsquerdo', validacaoTerminal[2]): return True
+    if valida_grid('', 'clicaEsquerdo', validacaoTerminal[2]): return True
 
     press('enter') # O sistema precisa ser reiniciado "OK"
     clicaEsquerdo(955, 560) # Preocaução "OK"
@@ -546,7 +546,7 @@ def entrar_no_terminal(usuario):
     press('insert') # Salvar
 
 def valida_transacoes(transacoes):
-    chk = valida_grid_NOVO('', 'centroDireito', transacoes['validacao'])
+    chk = valida_grid('', 'centroDireito', transacoes['validacao'])
     if chk: messagebox.showerror('Erro - Transação', 'Esperado: ' + str(transacoes['validacao']))
     return chk
 
@@ -656,7 +656,7 @@ def situacao_notas(tipo):
     }
 
     copiar_tudo([503, 988])
-    if valida_grid_NOVO('', [503, 988], validacao[tipo], [0,3,3,3,3,3,3,3,3,3]):
+    if valida_grid('', [503, 988], validacao[tipo], [0,3,3,3,3,3,3,3,3,3]):
         messagebox.showerror('Erro NFC-e', 'Esperado: ' + str(validacao[tipo]))
         return True
     return False
@@ -687,7 +687,7 @@ def produtos_nota(situacao, nota):
 
 
     copiar_tudo([1467, 990])
-    if valida_grid_NOVO('', [1467, 990], aux[nota]):
+    if valida_grid('', [1467, 990], aux[nota]):
         messagebox.showerror('Erro NFC-e', 'Esperado: ' + str(aux[nota]))
         return True
     clicaCentro()
@@ -950,7 +950,7 @@ def cancelar_nfce(validacaoCancelarNfce):
     press('f5') # Motivo
     sleep(0.8)
 
-    if valida_grid_NOVO('', 'centroDireito', validacaoCancelarNfce[1]): return True
+    if valida_grid('', 'centroDireito', validacaoCancelarNfce[1]): return True
 
     press('enter') # Ok
 

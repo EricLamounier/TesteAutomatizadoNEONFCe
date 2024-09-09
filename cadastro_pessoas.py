@@ -114,7 +114,7 @@ def cadastro_classificacao_cliente(classificacao):
     press('insert') # Salva
     sleep(0.8)
 
-    chk = valida_grid_NOVO(classificacao['classificacao'], 'centroDireito', classificacao['validacao'])
+    chk = valida_grid(classificacao['classificacao'], 'centroDireito', classificacao['validacao'])
     sleep(0.5)
 
     press('esc')
@@ -195,7 +195,7 @@ def cadastro_cliente_5(cliente):
     press('insert') # Salva a pessoa
     sleep(0.3)
 
-    chk = valida_grid_NOVO(cliente['doc'], 'centroDireito', cliente['validacao'], [20, 21])
+    chk = valida_grid(cliente['doc'], 'centroDireito', cliente['validacao'], [20, 21])
 
     sleep(0.3)
     press('esc')

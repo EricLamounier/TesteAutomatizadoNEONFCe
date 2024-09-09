@@ -9,7 +9,7 @@ def dav_crediario(venda):
     venda['validacaoFinanceiro'][1] = obter_data(1) 
     venda['validacaoFinanceiro'][7] = obter_data(2)
     sleep(1)
-    if valida_grid_NOVO('', 'centroDireito', venda['validacaoFinanceiro']): 
+    if valida_grid('', 'centroDireito', venda['validacaoFinanceiro']): 
         messagebox.showerror('Erro - DAV', 'Esperado: ' + str(venda['validacaoFinanceiro']))
         return True
 
@@ -67,7 +67,7 @@ def dav(venda):
 
     sleep(0.5)
     # Valida o grid da venda
-    if valida_grid_NOVO('', 'centroDireito', venda['validacaoVenda']): return True
+    if valida_grid('', 'centroDireito', venda['validacaoVenda']): return True
     sleep(0.5)
     clicaEsquerdo(495, 851) # Estoque
     sleep(1)
@@ -124,7 +124,7 @@ def dav(venda):
     press('insert') # Sai do filtro
     sleep(0.5)
 
-    if valida_grid_NOVO('', 'centroDireito', venda['produtos'][0]['validacao'], [18]): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
+    if valida_grid('', 'centroDireito', venda['produtos'][0]['validacao'], [18]): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
     press('esc')
     sleep(0.5)
     #return chk # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
@@ -259,7 +259,7 @@ def dav_rapido(venda):
         if valida_grid(prod['produto'], 'centroDireito', prod['validacao'], 18): return True
     """
 
-    if valida_grid_NOVO('', 'centroDireito', venda['produtos'][0]['validacao'], [18]): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
+    if valida_grid('', 'centroDireito', venda['produtos'][0]['validacao'], [18]): return True # CASO TENHA MAIS DE UM PRODUTO NA VENDA EXCLUA AQUI
 
     press('esc') # Sai da tela
     sleep(0.2)
