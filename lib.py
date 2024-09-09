@@ -38,6 +38,7 @@ def clicaEsquerdo(x, y):
 
 def clicaDireito(x, y):
     x, y = calcular_xy('x'.join([str(x),str(y)]))
+    sleep(0.7)
     rightClick(x, y)
 
 def clicaEsquerdoDuplo(x, y):
